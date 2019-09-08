@@ -8,20 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		5467E96B23244ADC00E65C9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5467E96A23244ADC00E65C9C /* AppDelegate.swift */; };
-		5467E96D23244ADC00E65C9C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5467E96C23244ADC00E65C9C /* ViewController.swift */; };
 		5467E97023244ADC00E65C9C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5467E96E23244ADC00E65C9C /* Main.storyboard */; };
 		5467E97223244ADC00E65C9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5467E97123244ADC00E65C9C /* Assets.xcassets */; };
 		5467E97523244ADC00E65C9C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5467E97323244ADC00E65C9C /* LaunchScreen.storyboard */; };
+		5467E97E23244E1700E65C9C /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5467E97D23244E1700E65C9C /* SearchTableViewController.swift */; };
+		5467E9812324526400E65C9C /* TextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5467E9802324526400E65C9C /* TextTableViewCell.swift */; };
+		5467E98323248FB400E65C9C /* NumberTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5467E98223248FB400E65C9C /* NumberTableViewCell.swift */; };
+		5467E985232498EA00E65C9C /* PickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5467E984232498EA00E65C9C /* PickerTableViewCell.swift */; };
+		5467E9872324B84D00E65C9C /* PickerViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5467E9862324B84D00E65C9C /* PickerViewTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5467E96723244ADC00E65C9C /* GrinnellDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GrinnellDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5467E96A23244ADC00E65C9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5467E96C23244ADC00E65C9C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		5467E96F23244ADC00E65C9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5467E97123244ADC00E65C9C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5467E97423244ADC00E65C9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5467E97623244ADC00E65C9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5467E97D23244E1700E65C9C /* SearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchTableViewController.swift; path = GrinnellDB/SearchTableViewController.swift; sourceTree = SOURCE_ROOT; };
+		5467E9802324526400E65C9C /* TextTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextTableViewCell.swift; sourceTree = "<group>"; };
+		5467E98223248FB400E65C9C /* NumberTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberTableViewCell.swift; sourceTree = "<group>"; };
+		5467E984232498EA00E65C9C /* PickerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerTableViewCell.swift; sourceTree = "<group>"; };
+		5467E9862324B84D00E65C9C /* PickerViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +62,34 @@
 		5467E96923244ADC00E65C9C /* GrinnellDB */ = {
 			isa = PBXGroup;
 			children = (
-				5467E96A23244ADC00E65C9C /* AppDelegate.swift */,
-				5467E96C23244ADC00E65C9C /* ViewController.swift */,
-				5467E96E23244ADC00E65C9C /* Main.storyboard */,
 				5467E97123244ADC00E65C9C /* Assets.xcassets */,
+				5467E96E23244ADC00E65C9C /* Main.storyboard */,
+				5467E97D23244E1700E65C9C /* SearchTableViewController.swift */,
+				5467E97F232451B400E65C9C /* Cell */,
+				5467E97C23244DDB00E65C9C /* Supporting files */,
+			);
+			path = GrinnellDB;
+			sourceTree = "<group>";
+		};
+		5467E97C23244DDB00E65C9C /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				5467E96A23244ADC00E65C9C /* AppDelegate.swift */,
 				5467E97323244ADC00E65C9C /* LaunchScreen.storyboard */,
 				5467E97623244ADC00E65C9C /* Info.plist */,
 			);
-			path = GrinnellDB;
+			path = "Supporting files";
+			sourceTree = "<group>";
+		};
+		5467E97F232451B400E65C9C /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				5467E9802324526400E65C9C /* TextTableViewCell.swift */,
+				5467E98223248FB400E65C9C /* NumberTableViewCell.swift */,
+				5467E984232498EA00E65C9C /* PickerTableViewCell.swift */,
+				5467E9862324B84D00E65C9C /* PickerViewTableViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,8 +163,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5467E96D23244ADC00E65C9C /* ViewController.swift in Sources */,
+				5467E9872324B84D00E65C9C /* PickerViewTableViewCell.swift in Sources */,
+				5467E98323248FB400E65C9C /* NumberTableViewCell.swift in Sources */,
+				5467E985232498EA00E65C9C /* PickerTableViewCell.swift in Sources */,
+				5467E9812324526400E65C9C /* TextTableViewCell.swift in Sources */,
 				5467E96B23244ADC00E65C9C /* AppDelegate.swift in Sources */,
+				5467E97E23244E1700E65C9C /* SearchTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,7 +315,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = GrinnellDB/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/GrinnellDB/Supporting files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -300,7 +332,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = GrinnellDB/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/GrinnellDB/Supporting files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -1,24 +1,141 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gEc-V7-0PM">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Search-->
+        <scene sceneID="vV0-fn-eEl">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <tableViewController id="zqG-ZZ-kep" customClass="SearchTableViewController" customModule="GrinnellDB" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ReD-9S-7tD">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TextCell" id="T3u-hh-k1N" customClass="TextTableViewCell" customModule="GrinnellDB" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="T3u-hh-k1N" id="iIq-wO-FUd">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iBc-N8-OGZ">
+                                            <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
+                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="iBc-N8-OGZ" secondAttribute="trailing" constant="20" symbolic="YES" id="ajq-wj-Jpu"/>
+                                        <constraint firstItem="iBc-N8-OGZ" firstAttribute="leading" secondItem="iIq-wO-FUd" secondAttribute="leading" constant="20" symbolic="YES" id="eVp-wU-STl"/>
+                                        <constraint firstItem="iBc-N8-OGZ" firstAttribute="top" secondItem="iIq-wO-FUd" secondAttribute="top" id="hWB-Zz-whf"/>
+                                        <constraint firstAttribute="bottom" secondItem="iBc-N8-OGZ" secondAttribute="bottom" id="xwv-Ie-Gpr"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="textField" destination="iBc-N8-OGZ" id="Qpx-CO-NW1"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NumberCell" id="Egr-hy-3tu" customClass="NumberTableViewCell" customModule="GrinnellDB" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="72" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Egr-hy-3tu" id="5i8-Hw-Ukk">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hIZ-GY-wkw">
+                                            <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
+                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="hIZ-GY-wkw" firstAttribute="leading" secondItem="5i8-Hw-Ukk" secondAttribute="leading" constant="20" symbolic="YES" id="HWe-bH-xBo"/>
+                                        <constraint firstAttribute="bottom" secondItem="hIZ-GY-wkw" secondAttribute="bottom" id="Mf0-ZJ-5gV"/>
+                                        <constraint firstItem="hIZ-GY-wkw" firstAttribute="top" secondItem="5i8-Hw-Ukk" secondAttribute="top" id="qSZ-d6-OLN"/>
+                                        <constraint firstAttribute="trailing" secondItem="hIZ-GY-wkw" secondAttribute="trailing" constant="20" symbolic="YES" id="qlR-0c-1Rl"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="numberField" destination="hIZ-GY-wkw" id="HAD-Y4-OgQ"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PickerCell" id="qXy-za-Gb5" customClass="PickerTableViewCell" customModule="GrinnellDB" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="116" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qXy-za-Gb5" id="BaS-rh-Uhd">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PickerViewCell" rowHeight="260" id="gAk-ha-Car" customClass="PickerViewTableViewCell" customModule="GrinnellDB" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="160" width="414" height="260"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gAk-ha-Car" id="FUV-28-xC8">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="259.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RNo-pw-Md1">
+                                            <rect key="frame" x="20" y="0.0" width="374" height="259.5"/>
+                                        </pickerView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="RNo-pw-Md1" secondAttribute="trailing" constant="20" symbolic="YES" id="CwD-9S-ryM"/>
+                                        <constraint firstAttribute="bottom" secondItem="RNo-pw-Md1" secondAttribute="bottom" id="ECY-Mg-hYQ"/>
+                                        <constraint firstAttribute="bottom" secondItem="RNo-pw-Md1" secondAttribute="bottom" id="EZN-la-dDV"/>
+                                        <constraint firstAttribute="bottom" secondItem="RNo-pw-Md1" secondAttribute="bottom" id="EmC-L4-hv7"/>
+                                        <constraint firstItem="RNo-pw-Md1" firstAttribute="leading" secondItem="FUV-28-xC8" secondAttribute="leading" constant="20" symbolic="YES" id="IzZ-2K-pNB"/>
+                                        <constraint firstItem="RNo-pw-Md1" firstAttribute="top" secondItem="FUV-28-xC8" secondAttribute="top" id="QP2-OC-B3r"/>
+                                        <constraint firstAttribute="bottom" secondItem="RNo-pw-Md1" secondAttribute="bottom" id="eYg-xq-wwg"/>
+                                        <constraint firstItem="RNo-pw-Md1" firstAttribute="top" secondItem="FUV-28-xC8" secondAttribute="top" id="gnw-n9-mHv"/>
+                                        <constraint firstAttribute="trailing" secondItem="RNo-pw-Md1" secondAttribute="trailing" constant="20" symbolic="YES" id="mJ3-9e-980"/>
+                                        <constraint firstItem="RNo-pw-Md1" firstAttribute="leading" secondItem="FUV-28-xC8" secondAttribute="leading" constant="20" symbolic="YES" id="qVH-7T-kRl"/>
+                                        <constraint firstItem="RNo-pw-Md1" firstAttribute="top" secondItem="FUV-28-xC8" secondAttribute="top" id="rBg-Er-a7T"/>
+                                        <constraint firstItem="RNo-pw-Md1" firstAttribute="top" secondItem="FUV-28-xC8" secondAttribute="top" id="t0k-B1-Dzz"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="pickerCell" destination="RNo-pw-Md1" id="Oil-O7-3vh"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="zqG-ZZ-kep" id="lPb-Rz-Anq"/>
+                            <outlet property="delegate" destination="zqG-ZZ-kep" id="cxV-mj-Q6n"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Search" id="Y6C-GD-Gq7">
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="ozy-lq-DIO"/>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wdk-UO-VAn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-391.304347826087" y="181.47321428571428"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="1n4-w6-4he">
+            <objects>
+                <navigationController id="gEc-V7-0PM" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="EB3-24-JL7">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="zqG-ZZ-kep" kind="relationship" relationship="rootViewController" id="lNm-9I-qaq"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="60W-db-AWs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1310" y="182"/>
         </scene>
     </scenes>
 </document>
