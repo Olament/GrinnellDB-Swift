@@ -246,7 +246,7 @@ class SearchTableViewController: UITableViewController {
         switch section {
             case 0: return "Basic"
             case 1: return "Detail"
-            default: return "Error!❌"
+            default: return "ERROR"
         }
     }
     
@@ -255,5 +255,51 @@ class SearchTableViewController: UITableViewController {
             return CGFloat(220.0)
         }
         return CGFloat(61.0)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        for cell in self.tableView.visibleCells {
+            if let textCell = cell as? TextTableViewCell {
+                params[textCell.textField.placeholder ?? ""] = textCell.textField.text
+            } else if let numberCell = cell as? NumberTableViewCell {
+                params[numberCell.numberField.placeholder ?? ""] = numberCell.numberField.text
+            } else if let pickerCell = cell as? PickerViewTableViewCell {
+                params[pickerCell.textField.placeholder ?? ""] = pickerCell.textField.text
+            }
+        }
+        
+        print(params)
+    }
+}
+
+extension UITextField {
+    
+    @IBInspectable var doneAccessory: Bool{
+        get{
+            return self.doneAccessory
+        }
+        set (hasDone) {
+            if hasDone {
+                addDoneButtonOnKeyboard()
+            }
+        }
+    }
+    
+    func addDoneButtonOnKeyboard() {
+        let doneToolbar: UIToolbar = UIToolbar(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50))
+        doneToolbar.barStyle = .default
+        
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let done: UIBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(self.doneButtonAction))
+        
+        let items = [flexSpace, done]
+        doneToolbar.items = items
+        doneToolbar.sizeToFit()
+        
+        self.inputAccessoryView = doneToolbar
+    }
+    
+    @objc func doneButtonAction() {
+        self.resignFirstResponder()
     }
 }

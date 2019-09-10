@@ -113,12 +113,44 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Search" id="Y6C-GD-Gq7">
-                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="ozy-lq-DIO"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="ozy-lq-DIO">
+                            <connections>
+                                <segue destination="vsp-Fk-rdG" kind="show" identifier="search" id="dc9-Ty-HO2"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wdk-UO-VAn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-391.304347826087" y="181.47321428571428"/>
+        </scene>
+        <!--List Table View Controller-->
+        <scene sceneID="xa6-8h-037">
+            <objects>
+                <tableViewController id="vsp-Fk-rdG" customClass="ListTableViewController" customModule="GrinnellDB" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="cgD-X6-fy3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="e1z-Sq-eOB">
+                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="e1z-Sq-eOB" id="rnD-al-f7P">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="vsp-Fk-rdG" id="pZn-9t-jMa"/>
+                            <outlet property="delegate" destination="vsp-Fk-rdG" id="BEw-m5-zls"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kxi-tD-4Y7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="539" y="181"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="1n4-w6-4he">

@@ -15,6 +15,7 @@
 		5467E9812324526400E65C9C /* TextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5467E9802324526400E65C9C /* TextTableViewCell.swift */; };
 		5467E98323248FB400E65C9C /* NumberTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5467E98223248FB400E65C9C /* NumberTableViewCell.swift */; };
 		54AEF5342327EE5500C6241F /* PickerViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54AEF5332327EE5500C6241F /* PickerViewTableViewCell.swift */; };
+		54AEF5362328679500C6241F /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54AEF5352328679500C6241F /* ListTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		5467E9802324526400E65C9C /* TextTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextTableViewCell.swift; sourceTree = "<group>"; };
 		5467E98223248FB400E65C9C /* NumberTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberTableViewCell.swift; sourceTree = "<group>"; };
 		54AEF5332327EE5500C6241F /* PickerViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewTableViewCell.swift; sourceTree = "<group>"; };
+		54AEF5352328679500C6241F /* ListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				5467E97123244ADC00E65C9C /* Assets.xcassets */,
 				5467E96E23244ADC00E65C9C /* Main.storyboard */,
 				5467E97D23244E1700E65C9C /* SearchTableViewController.swift */,
+				54AEF5352328679500C6241F /* ListTableViewController.swift */,
 				5467E97F232451B400E65C9C /* Cell */,
 				5467E97C23244DDB00E65C9C /* Supporting files */,
 			);
@@ -163,6 +166,7 @@
 				5467E98323248FB400E65C9C /* NumberTableViewCell.swift in Sources */,
 				54AEF5342327EE5500C6241F /* PickerViewTableViewCell.swift in Sources */,
 				5467E9812324526400E65C9C /* TextTableViewCell.swift in Sources */,
+				54AEF5362328679500C6241F /* ListTableViewController.swift in Sources */,
 				5467E96B23244ADC00E65C9C /* AppDelegate.swift in Sources */,
 				5467E97E23244E1700E65C9C /* SearchTableViewController.swift in Sources */,
 			);

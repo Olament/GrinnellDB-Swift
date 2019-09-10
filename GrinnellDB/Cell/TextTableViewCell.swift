@@ -17,6 +17,11 @@ class TextTableViewCell: UITableViewCell, UITextFieldDelegate {
         }
     }
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        self.textField.addDoneButtonOnKeyboard()
+    }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         //textField.becomeFirstResponder()

@@ -19,6 +19,7 @@ class NumberTableViewCell: UITableViewCell, UITextFieldDelegate {
     override func awakeFromNib() {
         super.awakeFromNib()
         numberField.keyboardType = UIKeyboardType.numberPad
+        self.numberField.addDoneButtonOnKeyboard()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

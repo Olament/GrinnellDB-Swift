@@ -24,6 +24,8 @@ class PickerViewTableViewCell: UITableViewCell, UIPickerViewDataSource, UIPicker
         pickerView.delegate = self
         textField.isUserInteractionEnabled = false
         pickerView.isHidden = true
+        
+        self.textField.addDoneButtonOnKeyboard()
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
