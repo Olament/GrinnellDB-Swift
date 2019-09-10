@@ -2,25 +2,28 @@
 //  PickerViewTableViewCell.swift
 //  GrinnellDB
 //
-//  Created by Zixuan on 9/7/19.
+//  Created by Zixuan on 9/10/19.
 //  Copyright © 2019 Zixuan. All rights reserved.
 //
 
 import UIKit
 
-class PickerViewTableViewCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataSource {
+class PickerViewTableViewCell: UITableViewCell, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate {
     
-    @IBOutlet weak var pickerCell: UIPickerView! {
+    @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var pickerView: UIPickerView!
+    var options: [String] = [] {
         didSet {
-            pickerCell.delegate = self
+            pickerView.reloadAllComponents()
         }
     }
     
-    var options: [String] = [] {
-        didSet {
-            pickerCell.reloadAllComponents()
-            print(options)
-        }
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        textField.delegate = self
+        pickerView.delegate = self
+        textField.isUserInteractionEnabled = false
+        pickerView.isHidden = true
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -35,12 +38,7 @@ class PickerViewTableViewCell: UITableViewCell, UIPickerViewDelegate, UIPickerVi
         return options[row]
     }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        textField.text = options[row] == "None" ? nil : options[row]
     }
 }

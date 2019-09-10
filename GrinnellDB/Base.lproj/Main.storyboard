@@ -68,42 +68,41 @@
                                     <outlet property="numberField" destination="hIZ-GY-wkw" id="HAD-Y4-OgQ"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PickerCell" id="qXy-za-Gb5" customClass="PickerTableViewCell" customModule="GrinnellDB" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="116" width="414" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PickerCell" rowHeight="220" id="CAH-7i-HWd" customClass="PickerViewTableViewCell" customModule="GrinnellDB" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="116" width="414" height="220"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qXy-za-Gb5" id="BaS-rh-Uhd">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PickerViewCell" rowHeight="260" id="gAk-ha-Car" customClass="PickerViewTableViewCell" customModule="GrinnellDB" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="160" width="414" height="260"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gAk-ha-Car" id="FUV-28-xC8">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="259.5"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CAH-7i-HWd" id="rwm-a6-ufy">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="219.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RNo-pw-Md1">
-                                            <rect key="frame" x="20" y="0.0" width="374" height="259.5"/>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fbT-7F-5r9">
+                                            <rect key="frame" x="20" y="11" width="374" height="55"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="55" id="dsL-gf-A8g"/>
+                                            </constraints>
+                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                        <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xqs-08-cLN">
+                                            <rect key="frame" x="20" y="92.5" width="374" height="97"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="97" id="2a2-i1-IKG"/>
+                                            </constraints>
                                         </pickerView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="RNo-pw-Md1" secondAttribute="trailing" constant="20" symbolic="YES" id="CwD-9S-ryM"/>
-                                        <constraint firstAttribute="bottom" secondItem="RNo-pw-Md1" secondAttribute="bottom" id="ECY-Mg-hYQ"/>
-                                        <constraint firstAttribute="bottom" secondItem="RNo-pw-Md1" secondAttribute="bottom" id="EZN-la-dDV"/>
-                                        <constraint firstAttribute="bottom" secondItem="RNo-pw-Md1" secondAttribute="bottom" id="EmC-L4-hv7"/>
-                                        <constraint firstItem="RNo-pw-Md1" firstAttribute="leading" secondItem="FUV-28-xC8" secondAttribute="leading" constant="20" symbolic="YES" id="IzZ-2K-pNB"/>
-                                        <constraint firstItem="RNo-pw-Md1" firstAttribute="top" secondItem="FUV-28-xC8" secondAttribute="top" id="QP2-OC-B3r"/>
-                                        <constraint firstAttribute="bottom" secondItem="RNo-pw-Md1" secondAttribute="bottom" id="eYg-xq-wwg"/>
-                                        <constraint firstItem="RNo-pw-Md1" firstAttribute="top" secondItem="FUV-28-xC8" secondAttribute="top" id="gnw-n9-mHv"/>
-                                        <constraint firstAttribute="trailing" secondItem="RNo-pw-Md1" secondAttribute="trailing" constant="20" symbolic="YES" id="mJ3-9e-980"/>
-                                        <constraint firstItem="RNo-pw-Md1" firstAttribute="leading" secondItem="FUV-28-xC8" secondAttribute="leading" constant="20" symbolic="YES" id="qVH-7T-kRl"/>
-                                        <constraint firstItem="RNo-pw-Md1" firstAttribute="top" secondItem="FUV-28-xC8" secondAttribute="top" id="rBg-Er-a7T"/>
-                                        <constraint firstItem="RNo-pw-Md1" firstAttribute="top" secondItem="FUV-28-xC8" secondAttribute="top" id="t0k-B1-Dzz"/>
+                                        <constraint firstItem="fbT-7F-5r9" firstAttribute="trailing" secondItem="rwm-a6-ufy" secondAttribute="trailingMargin" id="38c-aM-xwP"/>
+                                        <constraint firstAttribute="trailing" secondItem="xqs-08-cLN" secondAttribute="trailing" constant="20" symbolic="YES" id="5ir-Qr-uux"/>
+                                        <constraint firstItem="xqs-08-cLN" firstAttribute="leading" secondItem="rwm-a6-ufy" secondAttribute="leading" constant="20" symbolic="YES" id="J3N-du-vTf"/>
+                                        <constraint firstItem="fbT-7F-5r9" firstAttribute="top" secondItem="rwm-a6-ufy" secondAttribute="topMargin" id="QSZ-eQ-QbT"/>
+                                        <constraint firstAttribute="bottom" secondItem="xqs-08-cLN" secondAttribute="bottom" constant="30" id="i97-9Z-Vzp"/>
+                                        <constraint firstItem="fbT-7F-5r9" firstAttribute="leading" secondItem="rwm-a6-ufy" secondAttribute="leadingMargin" id="rd0-CI-uUT"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="pickerCell" destination="RNo-pw-Md1" id="Oil-O7-3vh"/>
+                                    <outlet property="pickerView" destination="xqs-08-cLN" id="E31-PX-OAz"/>
+                                    <outlet property="textField" destination="fbT-7F-5r9" id="wRc-Qj-CwA"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

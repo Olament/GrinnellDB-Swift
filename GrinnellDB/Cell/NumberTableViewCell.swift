@@ -23,7 +23,7 @@ class NumberTableViewCell: UITableViewCell, UITextFieldDelegate {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        numberField.becomeFirstResponder()
+        //numberField.becomeFirstResponder()
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

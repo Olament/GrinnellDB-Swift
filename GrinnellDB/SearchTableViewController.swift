@@ -36,7 +36,8 @@ class SearchTableViewController: UITableViewController {
                                               "Student Class": "PickerCell"]
     
     /* data for each option */
-    let major: [String] = ["Anthropology",
+    let major: [String] = ["None",
+                           "Anthropology",
                            "Art History",
                            "Biological Chemistry",
                            "Biology",
@@ -63,7 +64,8 @@ class SearchTableViewController: UITableViewController {
                            "Spanish",
                            "Studio Art",
                            "Theatre and Dance"]
-    let department: [String] = ["Academic Advising",
+    let department: [String] = ["None",
+                                "Academic Advising",
                                 "Academic Affairs and Dean of the College",
                                 "Accessibility and Disability Services",
                                 "Accounting",
@@ -115,7 +117,8 @@ class SearchTableViewController: UITableViewController {
                                 "Student Health and Counseling Services",
                                 "Treasurer",
                                 "Wellness"]
-    let SGA: [String] = ["President",
+    let SGA: [String] = ["None",
+                         "President",
                          "Vice President of Academic Affairs",
                          "Vice President of Student Affairs",
                          "Administrative Coordinator",
@@ -129,7 +132,8 @@ class SearchTableViewController: UITableViewController {
                          "Class Ambassador",
                          "Presiding Officer",
                          "Technical Advisor"]
-    let concentration: [String] = ["American Studies",
+    let concentration: [String] = ["None",
+                                   "American Studies",
                                    "East Asian Studies",
                                    "Environmental Studies",
                                    "European Studies",
@@ -143,14 +147,27 @@ class SearchTableViewController: UITableViewController {
                                    "Russian, Central, and Eastern European Studies",
                                    "Statistics",
                                    "Technology Studies"]
-    let hiatus: [String] = ["Grinnell in London",
+    let hiatus: [String] = ["None",
+                            "Grinnell in London",
                             "Grinnell in Washington"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
-    var pickerViewIndexPath: IndexPath? = nil
+    var isExpanded: [Bool] = Array(repeating: false, count: 9) //todo
+    var params: [String: String] = ["First name": "",
+                                   "Last name": "",
+                                   "Campus Address or P.O. Box": "",
+                                   "Fac/Staff Dept/Office": "",
+                                   "Student Major": "",
+                                   "Hiatus": "",
+                                   "Computer Username": "",
+                                   "Campus Phone": "",
+                                   "Home Address": "",
+                                   "SGA": "",
+                                   "Concentration": "",
+                                   "Student Class": ""]
     
     // MARK: - Table view data source
 
@@ -161,7 +178,7 @@ class SearchTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
             case 0: return searchFieldSimple.count
-            case 1: return pickerViewIndexPath == nil ? searchFieldDetail.count : searchFieldDetail.count + 1
+            case 1: return searchFieldDetail.count
             default: return 0
         }
     }
@@ -176,41 +193,36 @@ class SearchTableViewController: UITableViewController {
             }
         } else {
             /* indexPath section == 1 */
-            if pickerViewIndexPath == indexPath {
-                /* special case for displaying pickerView */
-                let cell = tableView.dequeueReusableCell(withIdentifier: "PickerViewCell", for: indexPath)
-                if let pickerCell = cell as? PickerViewTableViewCell {
-                    switch searchFieldDetail[indexPath.row - 1] {
-                        case "Fac/Staff Dept/Office": pickerCell.options = department
-                        case "Student Major": pickerCell.options = major
-                        case "Hiatus": pickerCell.options = hiatus
-                        case "SGA": pickerCell.options = SGA
-                        case "Concentration": pickerCell.options = concentration
-                        default: break
+            if let cellType = optionToCellType[searchFieldDetail[indexPath.row]] {
+                let cell = tableView.dequeueReusableCell(withIdentifier: cellType, for: indexPath)
+                switch cellType {
+                case "TextCell" :
+                    if let textCell = cell as? TextTableViewCell {
+                        textCell.textField.placeholder = searchFieldDetail[indexPath.row]
+                        return textCell
                     }
-                    return pickerCell
-                }
-            } else {
-                if let cellType = optionToCellType[searchFieldDetail[indexPath.row]] {
-                    let cell = tableView.dequeueReusableCell(withIdentifier: cellType, for: indexPath)
-                    switch cellType {
-                    case "TextCell" :
-                        if let textCell = cell as? TextTableViewCell {
-                            textCell.textField.placeholder = searchFieldDetail[indexPath.row]
-                            return textCell
-                        }
-                    case "NumberCell":
-                        if let numberCell = cell as? NumberTableViewCell {
-                            numberCell.numberField.placeholder = searchFieldDetail[indexPath.row]
-                            return numberCell
-                        }
-                    case "PickerCell":
-                        if let pickerCell = cell as? PickerTableViewCell {
-                            pickerCell.textLabel?.text = searchFieldDetail[indexPath.row]
-                            return pickerCell
-                        }
-                    default: break
+                case "NumberCell":
+                    if let numberCell = cell as? NumberTableViewCell {
+                        numberCell.numberField.placeholder = searchFieldDetail[indexPath.row]
+                        return numberCell
                     }
+                case "PickerCell":
+                    if let pickerCell = cell as? PickerViewTableViewCell {
+                        pickerCell.textField?.placeholder = searchFieldDetail[indexPath.row]
+                        switch searchFieldDetail[indexPath.row] {
+                            case "Fac/Staff Dept/Office": pickerCell.options = department
+                            case "Student Major": pickerCell.options = major
+                            case "Hiatus": pickerCell.options = hiatus
+                            case "Concentration": pickerCell.options = concentration
+                            default: break
+                        }
+                        if let param = params[searchFieldDetail[indexPath.row]], param != "" {
+                            pickerCell.textField.text = param
+                        }
+                        pickerCell.pickerView.isHidden = !isExpanded[indexPath.row]
+                        return pickerCell
+                    }
+                default: break
                 }
             }
         }
@@ -219,38 +231,12 @@ class SearchTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.beginUpdates()
-        
-        if let pickerViewIndexPath = pickerViewIndexPath {
-            /* already has a pickerView */
-            let offSetRow = indexPath.row < pickerViewIndexPath.row ? indexPath.row : indexPath.row - 1
-            if indexPath.section == 0 ||
-                pickerViewIndexPath.row - 1 == indexPath.row ||
-                optionToCellType[searchFieldDetail[offSetRow]] != "PickerView" {
-                tableView.deleteRows(at: [pickerViewIndexPath], with: .fade)
+        if indexPath.section == 1 && optionToCellType[searchFieldDetail[indexPath.row]] == "PickerCell" {
+            if isExpanded[indexPath.row], let pickerCell = tableView.cellForRow(at: indexPath) as? PickerViewTableViewCell{
+                params[searchFieldDetail[indexPath.row]] = pickerCell.textField.text ?? ""
             }
-        }
-        /* no pickerView exist */
-        if indexPath.section != 0 && optionToCellType[searchFieldDetail[indexPath.row]] == "PickerCell" {
-            pickerViewIndexPath = indexPathToInsertPickerView(indexPath: indexPath)
-            tableView.insertRows(at: [pickerViewIndexPath!], with: .fade)
-            tableView.deselectRow(at: indexPath, animated: true)
-        }
-        
-        tableView.endUpdates()
-    }
-    
-    private func indexPathToInsertPickerView(indexPath: IndexPath) -> IndexPath {
-        if let pickerViewIndexPath = pickerViewIndexPath, pickerViewIndexPath.row < indexPath.row {
-            return indexPath
-        }
-        
-        return IndexPath(row: indexPath.row + 1, section: indexPath.section)
-    }
-    
-    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if let inputCell = cell as? TextTableViewCell {
-            inputCell.textField.becomeFirstResponder()
+            isExpanded[indexPath.row] = !isExpanded[indexPath.row]
+            tableView.reloadRows(at: [indexPath], with: .automatic)
         }
     }
     
@@ -263,8 +249,8 @@ class SearchTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if let pickerViewIndexPath = pickerViewIndexPath, pickerViewIndexPath == indexPath {
-            return CGFloat(97.0)
+        if indexPath.section == 1 && isExpanded[indexPath.row] {
+            return CGFloat(220.0)
         }
         return CGFloat(61.0)
     }
