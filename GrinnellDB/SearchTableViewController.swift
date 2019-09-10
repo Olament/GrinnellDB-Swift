@@ -156,18 +156,18 @@ class SearchTableViewController: UITableViewController {
     }
     
     var isExpanded: [Bool] = Array(repeating: false, count: 9) //todo
-    var params: [String: String] = ["First name": "",
-                                   "Last name": "",
-                                   "Campus Address or P.O. Box": "",
-                                   "Fac/Staff Dept/Office": "",
-                                   "Student Major": "",
-                                   "Hiatus": "",
-                                   "Computer Username": "",
-                                   "Campus Phone": "",
-                                   "Home Address": "",
-                                   "SGA": "",
-                                   "Concentration": "",
-                                   "Student Class": ""]
+    var params: [String: String?] = ["First name": nil,
+                                     "Last name": nil,
+                                     "Campus Address or P.O. Box": nil,
+                                     "Fac/Staff Dept/Office": nil,
+                                     "Student Major": nil,
+                                     "Hiatus": nil,
+                                     "Computer Username": nil,
+                                     "Campus Phone": nil,
+                                     "Home Address": nil,
+                                     "SGA": nil,
+                                     "Concentration": nil,
+                                     "Student Class": nil]
     
     // MARK: - Table view data source
 
@@ -216,7 +216,7 @@ class SearchTableViewController: UITableViewController {
                             case "Concentration": pickerCell.options = concentration
                             default: break
                         }
-                        if let param = params[searchFieldDetail[indexPath.row]], param != "" {
+                        if let param = params[searchFieldDetail[indexPath.row]] {
                             pickerCell.textField.text = param
                         }
                         pickerCell.pickerView.isHidden = !isExpanded[indexPath.row]
@@ -232,8 +232,10 @@ class SearchTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 1 && optionToCellType[searchFieldDetail[indexPath.row]] == "PickerCell" {
-            if isExpanded[indexPath.row], let pickerCell = tableView.cellForRow(at: indexPath) as? PickerViewTableViewCell{
-                params[searchFieldDetail[indexPath.row]] = pickerCell.textField.text ?? ""
+            if isExpanded[indexPath.row],
+                let pickerCell = tableView.cellForRow(at: indexPath) as? PickerViewTableViewCell,
+                let param = pickerCell.textField.text {
+                params[searchFieldDetail[indexPath.row]] = param
             }
             isExpanded[indexPath.row] = !isExpanded[indexPath.row]
             tableView.reloadRows(at: [indexPath], with: .automatic)
