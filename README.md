@@ -2,7 +2,6 @@
 
 TODO
 - Search Scene
-  * PickerViewCell
-  * Segue information
+  * Query API
 - Result Scene
 - Detail Scene
