@@ -132,53 +132,57 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="cWv-uN-2fr" userLabel="footer">
+                            <rect key="frame" x="0.0" y="173" width="414" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="resultCell" rowHeight="163" id="8Yv-Qo-Bg2" customClass="ResultTableViewCell" customModule="GrinnellDB" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="163"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="resultCell" rowHeight="145" id="jgo-WP-qf9" userLabel="resultCell" customClass="ResultTableViewCell" customModule="GrinnellDB" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="145"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8Yv-Qo-Bg2" id="2wF-o5-xdx" customClass="ResultTableViewCell" customModule="GrinnellDB" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="162.5"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jgo-WP-qf9" id="qYd-eb-zgg">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="144.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oRn-zh-9Mr">
-                                            <rect key="frame" x="20" y="24" width="88" height="114.5"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jQY-1Z-yEn">
+                                            <rect key="frame" x="35" y="14" width="88" height="116"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="88" id="2Py-al-QEG"/>
+                                                <constraint firstAttribute="height" constant="116" id="0rc-j5-UPa"/>
+                                                <constraint firstAttribute="width" constant="88" id="Wt1-OW-liX"/>
                                             </constraints>
                                         </imageView>
-                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="F0t-JD-gxb" userLabel="Name">
-                                            <rect key="frame" x="134" y="19" width="240" height="30.5"/>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ZV-V0-dmD" userLabel="Name">
+                                            <rect key="frame" x="148" y="11" width="233" height="33"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="33" id="EZF-Kh-7sP"/>
+                                                <constraint firstAttribute="width" constant="233" id="oSk-yU-BUR"/>
+                                            </constraints>
                                             <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         </textView>
-                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ykW-gr-dRN" userLabel="Detail">
-                                            <rect key="frame" x="134" y="53.5" width="240" height="85"/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oXi-fF-EYh" userLabel="Detail">
+                                            <rect key="frame" x="148" y="44" width="240" height="100"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         </textView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="bottomMargin" secondItem="ykW-gr-dRN" secondAttribute="bottom" constant="13.5" id="3ho-24-048"/>
-                                        <constraint firstItem="oRn-zh-9Mr" firstAttribute="centerY" secondItem="2wF-o5-xdx" secondAttribute="centerY" id="6cs-Jz-bGl"/>
-                                        <constraint firstItem="oRn-zh-9Mr" firstAttribute="leading" secondItem="2wF-o5-xdx" secondAttribute="leadingMargin" id="COV-ap-evL"/>
-                                        <constraint firstItem="ykW-gr-dRN" firstAttribute="top" secondItem="F0t-JD-gxb" secondAttribute="bottom" constant="4" id="JSF-Fx-Cqd"/>
-                                        <constraint firstItem="F0t-JD-gxb" firstAttribute="leading" secondItem="oRn-zh-9Mr" secondAttribute="trailing" constant="26" id="Npp-bP-KlV"/>
-                                        <constraint firstItem="F0t-JD-gxb" firstAttribute="top" secondItem="2wF-o5-xdx" secondAttribute="topMargin" constant="8" id="URR-g2-06s"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="F0t-JD-gxb" secondAttribute="trailing" constant="20" id="Uve-RN-fVF"/>
-                                        <constraint firstItem="F0t-JD-gxb" firstAttribute="top" secondItem="2wF-o5-xdx" secondAttribute="topMargin" constant="8" id="VqH-RW-LW8"/>
-                                        <constraint firstItem="ykW-gr-dRN" firstAttribute="leading" secondItem="oRn-zh-9Mr" secondAttribute="trailing" constant="26" id="YQc-48-Kz3"/>
-                                        <constraint firstItem="oRn-zh-9Mr" firstAttribute="top" secondItem="2wF-o5-xdx" secondAttribute="topMargin" constant="13" id="f1R-e8-u3z"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="ykW-gr-dRN" secondAttribute="trailing" constant="20" id="lBl-mA-rSZ"/>
+                                        <constraint firstItem="9ZV-V0-dmD" firstAttribute="leading" secondItem="jQY-1Z-yEn" secondAttribute="trailing" constant="25" id="GER-Nx-b7A"/>
+                                        <constraint firstItem="9ZV-V0-dmD" firstAttribute="top" secondItem="qYd-eb-zgg" secondAttribute="topMargin" id="Wgk-A5-L29"/>
+                                        <constraint firstItem="jQY-1Z-yEn" firstAttribute="leading" secondItem="qYd-eb-zgg" secondAttribute="leadingMargin" constant="15" id="dIk-qQ-jFx"/>
+                                        <constraint firstItem="jQY-1Z-yEn" firstAttribute="top" secondItem="qYd-eb-zgg" secondAttribute="topMargin" constant="3" id="gu3-9h-zRq"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="detail" destination="ykW-gr-dRN" id="UIS-6x-i9e"/>
-                                    <outlet property="name" destination="F0t-JD-gxb" id="cUw-8E-yel"/>
-                                    <outlet property="profileImage" destination="oRn-zh-9Mr" id="odx-T6-dKn"/>
+                                    <outlet property="detail" destination="oXi-fF-EYh" id="96r-lF-zGE"/>
+                                    <outlet property="name" destination="9ZV-V0-dmD" id="Tg0-JC-ceR"/>
+                                    <outlet property="profileImage" destination="jQY-1Z-yEn" id="FJ7-4p-5r4"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

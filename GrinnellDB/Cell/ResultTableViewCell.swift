@@ -10,15 +10,19 @@ import UIKit
 
 class ResultTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var profileImage: UIImageView! {
+        didSet {
+            self.layoutSubviews()
+        }
+    }
     @IBOutlet weak var name: UITextView! {
         didSet {
-            self.name.isUserInteractionEnabled = false
+            name.isUserInteractionEnabled = false
         }
     }
     @IBOutlet weak var detail: UITextView! {
         didSet {
-            self.detail.isUserInteractionEnabled = false
+            detail.isUserInteractionEnabled = false
         }
     }
     

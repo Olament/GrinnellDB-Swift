@@ -268,26 +268,27 @@ class SearchTableViewController: UITableViewController {
             }
         }
         
-        print(params) // debug
+        //print(params) // debug
         
         if let listVC = segue.destination as? ListTableViewController {
             // mock data
-            let dic: [String: Any] = ["personType": "student",
-                                      "firstName": "Zixuan",
-                                      "lastName": "Guo",
-                                      "userName": "guozixua",
-                                      "box": "3603",
-                                      "email": "guozixua@grinnell.edu",
-                                      "address": "None",
-                                      "phone": "(641)-2255-332",
-                                      "imgPath": "google.com",
-                                      "homeAddress": "None",
-                                      "nickName": "None",
-                                      "classYear": "2021",
-                                      "major": "Computer Science",
-                                      "minor": "Biology"]
-                                      
-            listVC.people = [Student(dictionary: dic)]
+            let zixuanGuo: [String: Any] = ["personType": "student",
+                                            "firstName": "Zixuan",
+                                            "lastName": "Guo",
+                                            "userName": "guozixua",
+                                            "box": "3603",
+                                            "email": "guozixua@grinnell.edu",
+                                            "address": "None",
+                                            "phone": "(641)-2255-332",
+                                            "imgPath": "https://itwebapps.grinnell.edu/PcardImages/moved/98115.jpg",
+                                            "homeAddress": "None",
+                                            "nickName": "None",
+                                            "classYear": "2021",
+                                            "major": "Computer Science",
+                                            "minor": "Biology"]
+            
+            let zixuan = Student(dictionary: zixuanGuo)
+            listVC.people = [zixuan, zixuan, zixuan, zixuan, zixuan, zixuan, zixuan, zixuan]
         }
     }
 }

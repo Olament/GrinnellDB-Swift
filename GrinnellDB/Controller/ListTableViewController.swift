@@ -12,12 +12,6 @@ class ListTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     // MARK: - Table view data source
@@ -34,14 +28,27 @@ class ListTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return CGFloat(123.0)
+        return CGFloat(163.0)
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let person = people[indexPath.row]
         if let cell = tableView.dequeueReusableCell(withIdentifier: "resultCell", for: indexPath) as? ResultTableViewCell {
             cell.name.text = person.firstName + " " + person.lastName
-            cell.profileImage.image = UIImage(named: "ZixuanGuo")
+            if let image = imageCache[indexPath.row] {
+                cell.imageView?.image = image
+            } else {
+                DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+                    let urlContents = try? Data(contentsOf: person.imgPath)
+                    DispatchQueue.main.async {
+                        if let imageData = urlContents {
+                            cell.imageView?.image = UIImage(data: imageData)
+                            self?.imageCache[indexPath.row] = UIImage(data: imageData)
+                            self?.tableView.reloadRows(at: [indexPath], with: .automatic)
+                        }
+                    }
+                }
+            }
             return cell
         }
         
