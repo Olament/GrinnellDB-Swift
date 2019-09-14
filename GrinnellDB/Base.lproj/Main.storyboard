@@ -133,13 +133,53 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="e1z-Sq-eOB">
-                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="resultCell" rowHeight="163" id="8Yv-Qo-Bg2" customClass="ResultTableViewCell" customModule="GrinnellDB" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="163"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="e1z-Sq-eOB" id="rnD-al-f7P">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8Yv-Qo-Bg2" id="2wF-o5-xdx" customClass="ResultTableViewCell" customModule="GrinnellDB" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="162.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oRn-zh-9Mr">
+                                            <rect key="frame" x="20" y="24" width="88" height="114.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="88" id="2Py-al-QEG"/>
+                                            </constraints>
+                                        </imageView>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="F0t-JD-gxb" userLabel="Name">
+                                            <rect key="frame" x="134" y="19" width="240" height="30.5"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        </textView>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ykW-gr-dRN" userLabel="Detail">
+                                            <rect key="frame" x="134" y="53.5" width="240" height="85"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        </textView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="ykW-gr-dRN" secondAttribute="bottom" constant="13.5" id="3ho-24-048"/>
+                                        <constraint firstItem="oRn-zh-9Mr" firstAttribute="centerY" secondItem="2wF-o5-xdx" secondAttribute="centerY" id="6cs-Jz-bGl"/>
+                                        <constraint firstItem="oRn-zh-9Mr" firstAttribute="leading" secondItem="2wF-o5-xdx" secondAttribute="leadingMargin" id="COV-ap-evL"/>
+                                        <constraint firstItem="ykW-gr-dRN" firstAttribute="top" secondItem="F0t-JD-gxb" secondAttribute="bottom" constant="4" id="JSF-Fx-Cqd"/>
+                                        <constraint firstItem="F0t-JD-gxb" firstAttribute="leading" secondItem="oRn-zh-9Mr" secondAttribute="trailing" constant="26" id="Npp-bP-KlV"/>
+                                        <constraint firstItem="F0t-JD-gxb" firstAttribute="top" secondItem="2wF-o5-xdx" secondAttribute="topMargin" constant="8" id="URR-g2-06s"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="F0t-JD-gxb" secondAttribute="trailing" constant="20" id="Uve-RN-fVF"/>
+                                        <constraint firstItem="F0t-JD-gxb" firstAttribute="top" secondItem="2wF-o5-xdx" secondAttribute="topMargin" constant="8" id="VqH-RW-LW8"/>
+                                        <constraint firstItem="ykW-gr-dRN" firstAttribute="leading" secondItem="oRn-zh-9Mr" secondAttribute="trailing" constant="26" id="YQc-48-Kz3"/>
+                                        <constraint firstItem="oRn-zh-9Mr" firstAttribute="top" secondItem="2wF-o5-xdx" secondAttribute="topMargin" constant="13" id="f1R-e8-u3z"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="ykW-gr-dRN" secondAttribute="trailing" constant="20" id="lBl-mA-rSZ"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="detail" destination="ykW-gr-dRN" id="UIS-6x-i9e"/>
+                                    <outlet property="name" destination="F0t-JD-gxb" id="cUw-8E-yel"/>
+                                    <outlet property="profileImage" destination="oRn-zh-9Mr" id="odx-T6-dKn"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -150,7 +190,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kxi-tD-4Y7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="539" y="181"/>
+            <point key="canvasLocation" x="537.68115942028987" y="180.80357142857142"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="1n4-w6-4he">

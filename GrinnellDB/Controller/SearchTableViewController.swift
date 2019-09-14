@@ -268,13 +268,33 @@ class SearchTableViewController: UITableViewController {
             }
         }
         
-        print(params)
+        print(params) // debug
+        
+        if let listVC = segue.destination as? ListTableViewController {
+            // mock data
+            let dic: [String: Any] = ["personType": "student",
+                                      "firstName": "Zixuan",
+                                      "lastName": "Guo",
+                                      "userName": "guozixua",
+                                      "box": "3603",
+                                      "email": "guozixua@grinnell.edu",
+                                      "address": "None",
+                                      "phone": "(641)-2255-332",
+                                      "imgPath": "google.com",
+                                      "homeAddress": "None",
+                                      "nickName": "None",
+                                      "classYear": "2021",
+                                      "major": "Computer Science",
+                                      "minor": "Biology"]
+                                      
+            listVC.people = [Student(dictionary: dic)]
+        }
     }
 }
 
 extension UITextField {
     
-    @IBInspectable var doneAccessory: Bool{
+    @IBInspectable var doneAccessory: Bool  {
         get{
             return self.doneAccessory
         }
