@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ListTableViewController: UITableViewController {
+class ListViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +28,7 @@ class ListTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return CGFloat(163.0)
+        return CGFloat(144.5)
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -78,14 +78,15 @@ class ListTableViewController: UITableViewController {
         
         return UITableViewCell()
     }
-    /*
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if let detailVC = segue.destination as? DetailViewController, let cell = sender as? UITableViewCell {
+            if let selectedIndexPath = tableView.indexPath(for: cell) {
+                detailVC.person = people[selectedIndexPath.row]
+                detailVC.profileImage = imageCache[selectedIndexPath.row]
+            }
+        }
     }
-    */
-
 }

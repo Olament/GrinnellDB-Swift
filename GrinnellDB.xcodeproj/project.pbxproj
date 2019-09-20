@@ -7,36 +7,40 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		54562A5C2335285B005BD448 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54562A5B2335285B005BD448 /* DetailViewController.swift */; };
 		5467E96B23244ADC00E65C9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5467E96A23244ADC00E65C9C /* AppDelegate.swift */; };
 		5467E97023244ADC00E65C9C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5467E96E23244ADC00E65C9C /* Main.storyboard */; };
 		5467E97223244ADC00E65C9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5467E97123244ADC00E65C9C /* Assets.xcassets */; };
 		5467E97523244ADC00E65C9C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5467E97323244ADC00E65C9C /* LaunchScreen.storyboard */; };
-		5467E97E23244E1700E65C9C /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5467E97D23244E1700E65C9C /* SearchTableViewController.swift */; };
+		5467E97E23244E1700E65C9C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5467E97D23244E1700E65C9C /* SearchViewController.swift */; };
 		5467E9812324526400E65C9C /* TextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5467E9802324526400E65C9C /* TextTableViewCell.swift */; };
 		5467E98323248FB400E65C9C /* NumberTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5467E98223248FB400E65C9C /* NumberTableViewCell.swift */; };
 		5479B3DB232CA9D1002160F5 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5479B3DA232CA9D1002160F5 /* Student.swift */; };
+		547D467A23352F330058D767 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547D467923352F330058D767 /* ProfileTableViewCell.swift */; };
 		548EEC8E232CB0470009645D /* SGA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548EEC8D232CB0470009645D /* SGA.swift */; };
 		54AEF5342327EE5500C6241F /* PickerViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54AEF5332327EE5500C6241F /* PickerViewTableViewCell.swift */; };
-		54AEF5362328679500C6241F /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54AEF5352328679500C6241F /* ListTableViewController.swift */; };
+		54AEF5362328679500C6241F /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54AEF5352328679500C6241F /* ListViewController.swift */; };
 		54AEF538232CA79B00C6241F /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54AEF537232CA79B00C6241F /* Person.swift */; };
 		54B3ABD7232CB199002E2DBE /* Faculty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B3ABD6232CB199002E2DBE /* Faculty.swift */; };
 		54B3ABDA232CC122002E2DBE /* ResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B3ABD9232CC122002E2DBE /* ResultTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		54562A5B2335285B005BD448 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		5467E96723244ADC00E65C9C /* GrinnellDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GrinnellDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5467E96A23244ADC00E65C9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5467E96F23244ADC00E65C9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5467E97123244ADC00E65C9C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5467E97423244ADC00E65C9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5467E97623244ADC00E65C9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5467E97D23244E1700E65C9C /* SearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchTableViewController.swift; path = GrinnellDB/Controller/SearchTableViewController.swift; sourceTree = SOURCE_ROOT; };
+		5467E97D23244E1700E65C9C /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchViewController.swift; path = GrinnellDB/Controller/SearchViewController.swift; sourceTree = SOURCE_ROOT; };
 		5467E9802324526400E65C9C /* TextTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextTableViewCell.swift; sourceTree = "<group>"; };
 		5467E98223248FB400E65C9C /* NumberTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberTableViewCell.swift; sourceTree = "<group>"; };
 		5479B3DA232CA9D1002160F5 /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
+		547D467923352F330058D767 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 		548EEC8D232CB0470009645D /* SGA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGA.swift; sourceTree = "<group>"; };
 		54AEF5332327EE5500C6241F /* PickerViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewTableViewCell.swift; sourceTree = "<group>"; };
-		54AEF5352328679500C6241F /* ListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewController.swift; sourceTree = "<group>"; };
+		54AEF5352328679500C6241F /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		54AEF537232CA79B00C6241F /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		54B3ABD6232CB199002E2DBE /* Faculty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Faculty.swift; sourceTree = "<group>"; };
 		54B3ABD9232CC122002E2DBE /* ResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultTableViewCell.swift; sourceTree = "<group>"; };
@@ -99,6 +103,7 @@
 				54B3ABD9232CC122002E2DBE /* ResultTableViewCell.swift */,
 				5467E98223248FB400E65C9C /* NumberTableViewCell.swift */,
 				54AEF5332327EE5500C6241F /* PickerViewTableViewCell.swift */,
+				547D467923352F330058D767 /* ProfileTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -117,8 +122,9 @@
 		54B3ABD8232CBEA1002E2DBE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				5467E97D23244E1700E65C9C /* SearchTableViewController.swift */,
-				54AEF5352328679500C6241F /* ListTableViewController.swift */,
+				5467E97D23244E1700E65C9C /* SearchViewController.swift */,
+				54AEF5352328679500C6241F /* ListViewController.swift */,
+				54562A5B2335285B005BD448 /* DetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -197,14 +203,16 @@
 				54B3ABDA232CC122002E2DBE /* ResultTableViewCell.swift in Sources */,
 				54B3ABD7232CB199002E2DBE /* Faculty.swift in Sources */,
 				5467E98323248FB400E65C9C /* NumberTableViewCell.swift in Sources */,
+				54562A5C2335285B005BD448 /* DetailViewController.swift in Sources */,
 				548EEC8E232CB0470009645D /* SGA.swift in Sources */,
 				54AEF5342327EE5500C6241F /* PickerViewTableViewCell.swift in Sources */,
 				54AEF538232CA79B00C6241F /* Person.swift in Sources */,
 				5467E9812324526400E65C9C /* TextTableViewCell.swift in Sources */,
-				54AEF5362328679500C6241F /* ListTableViewController.swift in Sources */,
+				54AEF5362328679500C6241F /* ListViewController.swift in Sources */,
+				547D467A23352F330058D767 /* ProfileTableViewCell.swift in Sources */,
 				5479B3DB232CA9D1002160F5 /* Student.swift in Sources */,
 				5467E96B23244ADC00E65C9C /* AppDelegate.swift in Sources */,
-				5467E97E23244E1700E65C9C /* SearchTableViewController.swift in Sources */,
+				5467E97E23244E1700E65C9C /* SearchViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,7 +12,7 @@
         <!--Search-->
         <scene sceneID="vV0-fn-eEl">
             <objects>
-                <tableViewController id="zqG-ZZ-kep" customClass="SearchTableViewController" customModule="GrinnellDB" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="zqG-ZZ-kep" customClass="SearchViewController" customModule="GrinnellDB" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ReD-9S-7tD">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -124,10 +124,10 @@
             </objects>
             <point key="canvasLocation" x="-391.304347826087" y="181.47321428571428"/>
         </scene>
-        <!--List Table View Controller-->
+        <!--Result-->
         <scene sceneID="xa6-8h-037">
             <objects>
-                <tableViewController id="vsp-Fk-rdG" customClass="ListTableViewController" customModule="GrinnellDB" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Results" id="vsp-Fk-rdG" userLabel="Result" customClass="ListViewController" customModule="GrinnellDB" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="cgD-X6-fy3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -150,35 +150,36 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         </textView>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oXi-fF-EYh" userLabel="Detail">
                                             <rect key="frame" x="148" y="44" width="240" height="100"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="22"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         </textView>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jQY-1Z-yEn">
-                                            <rect key="frame" x="30" y="11" width="90" height="123"/>
+                                            <rect key="frame" x="30" y="11" width="94" height="123"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="90" id="fya-Hh-X9A"/>
-                                                <constraint firstAttribute="height" constant="123" id="vHt-lG-tCv"/>
+                                                <constraint firstAttribute="width" constant="94" id="KTI-K0-kys"/>
+                                                <constraint firstAttribute="height" constant="123" id="peY-lT-V5Q"/>
                                             </constraints>
                                         </imageView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="jQY-1Z-yEn" firstAttribute="centerY" secondItem="qYd-eb-zgg" secondAttribute="centerY" id="DBl-aU-OaT"/>
-                                        <constraint firstItem="jQY-1Z-yEn" firstAttribute="leading" secondItem="qYd-eb-zgg" secondAttribute="leadingMargin" constant="10" id="seA-HD-8E5"/>
+                                        <constraint firstItem="jQY-1Z-yEn" firstAttribute="centerY" secondItem="qYd-eb-zgg" secondAttribute="centerY" id="3kg-6X-jFQ"/>
+                                        <constraint firstItem="jQY-1Z-yEn" firstAttribute="leading" secondItem="qYd-eb-zgg" secondAttribute="leadingMargin" constant="10" id="QHi-tB-XQE"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="detail" destination="oXi-fF-EYh" id="96r-lF-zGE"/>
                                     <outlet property="name" destination="9ZV-V0-dmD" id="Tg0-JC-ceR"/>
                                     <outlet property="profileImage" destination="jQY-1Z-yEn" id="FJ7-4p-5r4"/>
+                                    <segue destination="9EL-On-mqH" kind="show" id="Mfj-Xz-URp"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -191,6 +192,60 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kxi-tD-4Y7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="537.68115942028987" y="180.80357142857142"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="FuT-ee-0zt">
+            <objects>
+                <tableViewController id="9EL-On-mqH" customClass="DetailViewController" customModule="GrinnellDB" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="0VS-l0-McN">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="profileCell" rowHeight="218" id="dQZ-8K-Mxy" customClass="ProfileTableViewCell" customModule="GrinnellDB" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="218"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dQZ-8K-Mxy" id="qLY-9M-7rC">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="217.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lbI-OZ-jJf" userLabel="profileImage">
+                                            <rect key="frame" x="155" y="16" width="104" height="136"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="104" id="hUC-1y-gjU"/>
+                                                <constraint firstAttribute="height" constant="136" id="mIo-pt-BW3"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TCb-XN-tiG" userLabel="name">
+                                            <rect key="frame" x="20" y="172" width="374" height="29"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="TCb-XN-tiG" firstAttribute="top" secondItem="lbI-OZ-jJf" secondAttribute="bottom" constant="20" id="4jT-Vn-Ux9"/>
+                                        <constraint firstItem="lbI-OZ-jJf" firstAttribute="centerX" secondItem="qLY-9M-7rC" secondAttribute="centerX" id="Cig-Ga-A3p"/>
+                                        <constraint firstItem="lbI-OZ-jJf" firstAttribute="top" secondItem="qLY-9M-7rC" secondAttribute="topMargin" constant="5" id="Ujo-ck-PSH"/>
+                                        <constraint firstItem="TCb-XN-tiG" firstAttribute="trailing" secondItem="qLY-9M-7rC" secondAttribute="trailingMargin" id="dli-JB-cZY"/>
+                                        <constraint firstItem="TCb-XN-tiG" firstAttribute="leading" secondItem="qLY-9M-7rC" secondAttribute="leadingMargin" id="uIS-yX-6eo"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="name" destination="TCb-XN-tiG" id="254-ae-GuU"/>
+                                    <outlet property="profileImage" destination="lbI-OZ-jJf" id="evB-CA-Adk"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="9EL-On-mqH" id="qXE-eJ-VEc"/>
+                            <outlet property="delegate" destination="9EL-On-mqH" id="zVB-nm-AeE"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SW2-XL-fGb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1371.0144927536232" y="180.80357142857142"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="1n4-w6-4he">

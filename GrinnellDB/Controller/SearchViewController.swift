@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SearchTableViewController: UITableViewController {
+class SearchViewController: UITableViewController {
     
     let searchFieldSimple: [String] = ["First name",
                                        "Last name"]
@@ -271,7 +271,7 @@ class SearchTableViewController: UITableViewController {
         
         //print(params) // debug
         
-        if let listVC = segue.destination as? ListTableViewController {
+        if let listVC = segue.destination as? ListViewController {
             // mock data
             let zixuanGuo: [String: Any] = ["personType": "student",
                                             "firstName": "Zixuan",
