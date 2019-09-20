@@ -214,6 +214,7 @@ class SearchTableViewController: UITableViewController {
                             case "Student Major": pickerCell.options = major
                             case "Hiatus": pickerCell.options = hiatus
                             case "Concentration": pickerCell.options = concentration
+                            case "SGA": pickerCell.options = SGA
                             default: break
                         }
                         if let param = params[searchFieldDetail[indexPath.row]] {

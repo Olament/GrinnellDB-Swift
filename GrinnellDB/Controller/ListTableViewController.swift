@@ -34,16 +34,40 @@ class ListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let person = people[indexPath.row]
         if let cell = tableView.dequeueReusableCell(withIdentifier: "resultCell", for: indexPath) as? ResultTableViewCell {
+            /* load name and description */
+            let detailText: String
+            switch person.type {
+            case .student:
+                let student = person as! Student
+                detailText = String(format: "%@\n%@\n%@", student.email, student.major, student.classYear)
+            case .SGA:
+                let sga = person as! SGA
+                detailText = String(format: "%@\n%@\n", sga.email, sga.positionName)
+            case .faculty:
+                let faculty = person as! Faculty
+                detailText = String(format: "%@\n%@\n%@", faculty.email, faculty.departments[0], faculty.titles[0])
+            }
+            
             cell.name.text = person.firstName + " " + person.lastName
+            
+            let paragraphStyle = NSMutableParagraphStyle()
+            paragraphStyle.lineSpacing = 8.0
+            let attributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16.0),
+                              NSAttributedString.Key.paragraphStyle: paragraphStyle]
+            cell.detail.attributedText = NSAttributedString(string: detailText, attributes: attributes)
+            
+            
+            /* load image */
             if let image = imageCache[indexPath.row] {
-                cell.imageView?.image = image
+                cell.profileImage?.image = image
             } else {
                 DispatchQueue.global(qos: .userInitiated).async { [weak self] in
                     let urlContents = try? Data(contentsOf: person.imgPath)
                     DispatchQueue.main.async {
                         if let imageData = urlContents {
-                            cell.imageView?.image = UIImage(data: imageData)
+                            cell.profileImage?.image = UIImage(data: imageData)
                             self?.imageCache[indexPath.row] = UIImage(data: imageData)
+                            cell.profileImage?.contentMode = .scaleToFill
                             self?.tableView.reloadRows(at: [indexPath], with: .automatic)
                         }
                     }

@@ -10,24 +10,15 @@ import UIKit
 
 class ResultTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var profileImage: UIImageView! {
-        didSet {
-            self.layoutSubviews()
-        }
-    }
-    @IBOutlet weak var name: UITextView! {
-        didSet {
-            name.isUserInteractionEnabled = false
-        }
-    }
-    @IBOutlet weak var detail: UITextView! {
-        didSet {
-            detail.isUserInteractionEnabled = false
-        }
-    }
+    @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var name: UITextView!
+    @IBOutlet weak var detail: UITextView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        name.isUserInteractionEnabled = false
+        detail.isUserInteractionEnabled = false
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

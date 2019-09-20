@@ -145,38 +145,34 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="144.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jQY-1Z-yEn">
-                                            <rect key="frame" x="35" y="14" width="88" height="116"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="116" id="0rc-j5-UPa"/>
-                                                <constraint firstAttribute="width" constant="88" id="Wt1-OW-liX"/>
-                                            </constraints>
-                                        </imageView>
-                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ZV-V0-dmD" userLabel="Name">
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ZV-V0-dmD" userLabel="Name">
                                             <rect key="frame" x="148" y="11" width="233" height="33"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="33" id="EZF-Kh-7sP"/>
-                                                <constraint firstAttribute="width" constant="233" id="oSk-yU-BUR"/>
-                                            </constraints>
                                             <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         </textView>
-                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oXi-fF-EYh" userLabel="Detail">
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oXi-fF-EYh" userLabel="Detail">
                                             <rect key="frame" x="148" y="44" width="240" height="100"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="22"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         </textView>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jQY-1Z-yEn">
+                                            <rect key="frame" x="30" y="11" width="90" height="123"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="90" id="fya-Hh-X9A"/>
+                                                <constraint firstAttribute="height" constant="123" id="vHt-lG-tCv"/>
+                                            </constraints>
+                                        </imageView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="9ZV-V0-dmD" firstAttribute="leading" secondItem="jQY-1Z-yEn" secondAttribute="trailing" constant="25" id="GER-Nx-b7A"/>
-                                        <constraint firstItem="9ZV-V0-dmD" firstAttribute="top" secondItem="qYd-eb-zgg" secondAttribute="topMargin" id="Wgk-A5-L29"/>
-                                        <constraint firstItem="jQY-1Z-yEn" firstAttribute="leading" secondItem="qYd-eb-zgg" secondAttribute="leadingMargin" constant="15" id="dIk-qQ-jFx"/>
-                                        <constraint firstItem="jQY-1Z-yEn" firstAttribute="top" secondItem="qYd-eb-zgg" secondAttribute="topMargin" constant="3" id="gu3-9h-zRq"/>
+                                        <constraint firstItem="jQY-1Z-yEn" firstAttribute="centerY" secondItem="qYd-eb-zgg" secondAttribute="centerY" id="DBl-aU-OaT"/>
+                                        <constraint firstItem="jQY-1Z-yEn" firstAttribute="leading" secondItem="qYd-eb-zgg" secondAttribute="leadingMargin" constant="10" id="seA-HD-8E5"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
