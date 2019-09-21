@@ -51,7 +51,7 @@ class ListViewController: UITableViewController {
             cell.name.text = person.firstName + " " + person.lastName
             
             let paragraphStyle = NSMutableParagraphStyle()
-            paragraphStyle.lineSpacing = 8.0
+            paragraphStyle.lineSpacing = 2.0
             let attributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16.0),
                               NSAttributedString.Key.paragraphStyle: paragraphStyle]
             cell.detail.attributedText = NSAttributedString(string: detailText, attributes: attributes)
@@ -68,7 +68,7 @@ class ListViewController: UITableViewController {
                             cell.profileImage?.image = UIImage(data: imageData)
                             self?.imageCache[indexPath.row] = UIImage(data: imageData)
                             cell.profileImage?.contentMode = .scaleToFill
-                            self?.tableView.reloadRows(at: [indexPath], with: .automatic)
+                            //self?.tableView.reloadRows(at: [indexPath], with: .automatic)
                         }
                     }
                 }
@@ -85,7 +85,7 @@ class ListViewController: UITableViewController {
         if let detailVC = segue.destination as? DetailViewController, let cell = sender as? UITableViewCell {
             if let selectedIndexPath = tableView.indexPath(for: cell) {
                 detailVC.person = people[selectedIndexPath.row]
-                detailVC.profileImage = imageCache[selectedIndexPath.row]
+                detailVC.profileImage = imageCache[selectedIndexPath.row] ?? UIImage(named: "placeholder")
             }
         }
     }

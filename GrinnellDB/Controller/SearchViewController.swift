@@ -288,8 +288,34 @@ class SearchViewController: UITableViewController {
                                             "major": "Computer Science",
                                             "minor": "Biology"]
             
+//            person2.firstName=@"Peter-Michael";
+//            person2.lastName=@"Osera";
+//            person2.email=@"oserapet@grinnell.edu";
+//            person2.address=@"3811 Science";
+//            person2.box=@"SCIE";
+//            person2.phone=@"4010";
+//            person2.homeAddress=@"1804 3rd Ave";
+//            person2.titles=@[@"Assistant Professor of Computer Science", @"Department Chair of Computer Science"];
+//            person2.departments=@[@"Computer Science", @"Music"];
+//            person2.imgPath=[NSURL URLWithString:@"https://itwebapps.grinnell.edu/PcardImages/moved/84326.jpg"];
+            
+            let peterMichaelOsera: [String: Any] = ["personType": "faculty",
+                                               "firstName": "Peter-Michael",
+                                               "lastName": "Osera",
+                                               "userName": "oserapet",
+                                               "box": "SCIE",
+                                               "email": "oserapet@grinnell.edu",
+                                               "address": "None",
+                                               "phone": "4010",
+                                               "imgPath": "https://itwebapps.grinnell.edu/PcardImages/moved/84326.jpg",
+                                               "homeAddress": "1804 3rd Ave",
+                                               "titles": ["Assistant Professor of Computer Science", "Department Chair of Computer Science"],
+                                               "departments": ["Computer Science", "Music"],
+                                               "spouse": "Null"]
+            
             let zixuan = Student(dictionary: zixuanGuo)
-            listVC.people = [zixuan, zixuan, zixuan, zixuan, zixuan, zixuan, zixuan, zixuan]
+            let peter = Faculty(dictionary: peterMichaelOsera)
+            listVC.people = [zixuan, peter, zixuan, zixuan, zixuan, zixuan, zixuan, zixuan]
         }
     }
 }

@@ -19,13 +19,7 @@ class ResultTableViewCell: UITableViewCell {
         
         name.isUserInteractionEnabled = false
         detail.isUserInteractionEnabled = false
+        
+        detail.textContainer.lineBreakMode = .byWordWrapping
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
-    
 }

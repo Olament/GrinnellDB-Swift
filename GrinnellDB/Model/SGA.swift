@@ -9,6 +9,8 @@
 import Foundation
 
 class SGA: Person {
+    let major: String
+    let classYear: String
     let officePhone: String
     let officeEmail: String
     let officeAddress: String
@@ -23,6 +25,8 @@ class SGA: Person {
         officeBox = dic["officeBox"] as! String
         positionName = dic["positionName"] as! String
         officeHours = dic["officeHours"] as! [String]
+        major = dic["major"] as! String
+        classYear = dic["classYear"] as! String
         
         super.init(dictionary: dic)
     }

@@ -17,6 +17,7 @@
 		5467E98323248FB400E65C9C /* NumberTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5467E98223248FB400E65C9C /* NumberTableViewCell.swift */; };
 		5479B3DB232CA9D1002160F5 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5479B3DA232CA9D1002160F5 /* Student.swift */; };
 		547D467A23352F330058D767 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547D467923352F330058D767 /* ProfileTableViewCell.swift */; };
+		547D467C233540A70058D767 /* AttributeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547D467B233540A70058D767 /* AttributeTableViewCell.swift */; };
 		548EEC8E232CB0470009645D /* SGA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548EEC8D232CB0470009645D /* SGA.swift */; };
 		54AEF5342327EE5500C6241F /* PickerViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54AEF5332327EE5500C6241F /* PickerViewTableViewCell.swift */; };
 		54AEF5362328679500C6241F /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54AEF5352328679500C6241F /* ListViewController.swift */; };
@@ -38,6 +39,7 @@
 		5467E98223248FB400E65C9C /* NumberTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberTableViewCell.swift; sourceTree = "<group>"; };
 		5479B3DA232CA9D1002160F5 /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
 		547D467923352F330058D767 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
+		547D467B233540A70058D767 /* AttributeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeTableViewCell.swift; sourceTree = "<group>"; };
 		548EEC8D232CB0470009645D /* SGA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGA.swift; sourceTree = "<group>"; };
 		54AEF5332327EE5500C6241F /* PickerViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewTableViewCell.swift; sourceTree = "<group>"; };
 		54AEF5352328679500C6241F /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 				5467E98223248FB400E65C9C /* NumberTableViewCell.swift */,
 				54AEF5332327EE5500C6241F /* PickerViewTableViewCell.swift */,
 				547D467923352F330058D767 /* ProfileTableViewCell.swift */,
+				547D467B233540A70058D767 /* AttributeTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -200,6 +203,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				547D467C233540A70058D767 /* AttributeTableViewCell.swift in Sources */,
 				54B3ABDA232CC122002E2DBE /* ResultTableViewCell.swift in Sources */,
 				54B3ABD7232CB199002E2DBE /* Faculty.swift in Sources */,
 				5467E98323248FB400E65C9C /* NumberTableViewCell.swift in Sources */,
