@@ -52,8 +52,14 @@ class ListViewController: UITableViewController {
             
             let paragraphStyle = NSMutableParagraphStyle()
             paragraphStyle.lineSpacing = 2.0
-            let attributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16.0),
+            var attributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16.0),
                               NSAttributedString.Key.paragraphStyle: paragraphStyle]
+            // support dark mode
+            if #available(iOS 13.0, *) {
+                attributes[NSAttributedString.Key.foregroundColor] = UIColor.secondaryLabel
+            } else {
+                attributes[NSAttributedString.Key.foregroundColor] = UIColor.black
+            }
             cell.detail.attributedText = NSAttributedString(string: detailText, attributes: attributes)
             
             
