@@ -259,7 +259,7 @@
                                                     <rect key="frame" x="20" y="5" width="35.5" height="21.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                    <color key="textColor" red="0.81960784310000001" green="0.2156862745" blue="0.2156862745" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="0.79793757200241089" green="0.34223973751068115" blue="0.3019382655620575" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zjo-GK-rj7">
@@ -286,7 +286,7 @@
                                 <rect key="frame" x="147" y="828" width="120" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Send Message">
-                                    <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" red="0.79793757200000004" green="0.34223973749999997" blue="0.30193826559999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
                                     <action selector="sendMessage:" destination="XmW-bQ-PbV" eventType="touchUpInside" id="4mG-L6-4fh"/>
