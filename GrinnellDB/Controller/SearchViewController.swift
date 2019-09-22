@@ -219,6 +219,8 @@ class SearchViewController: UITableViewController {
                         }
                         if let param = params[searchFieldDetail[indexPath.row]] {
                             pickerCell.textField.text = param
+                            let currentSelectedRow = pickerCell.options.firstIndex(of: param ?? "Null") ?? 0
+                            pickerCell.pickerView.selectRow(currentSelectedRow, inComponent: 0, animated: true)
                         }
                         pickerCell.pickerView.isHidden = !isExpanded[indexPath.row]
                         return pickerCell
