@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5425024A241D2D630094B882 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54250249241D2D630094B882 /* LoginViewController.swift */; };
 		54562A5C2335285B005BD448 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54562A5B2335285B005BD448 /* DetailViewController.swift */; };
 		5467E96B23244ADC00E65C9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5467E96A23244ADC00E65C9C /* AppDelegate.swift */; };
 		5467E97023244ADC00E65C9C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5467E96E23244ADC00E65C9C /* Main.storyboard */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		54250249241D2D630094B882 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		54562A5B2335285B005BD448 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		5467E96723244ADC00E65C9C /* GrinnellDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GrinnellDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5467E96A23244ADC00E65C9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				5467E97D23244E1700E65C9C /* SearchViewController.swift */,
+				54250249241D2D630094B882 /* LoginViewController.swift */,
 				54AEF5352328679500C6241F /* ListViewController.swift */,
 				54562A5B2335285B005BD448 /* DetailViewController.swift */,
 			);
@@ -206,6 +209,7 @@
 				547D467C233540A70058D767 /* AttributeTableViewCell.swift in Sources */,
 				54B3ABDA232CC122002E2DBE /* ResultTableViewCell.swift in Sources */,
 				54B3ABD7232CB199002E2DBE /* Faculty.swift in Sources */,
+				5425024A241D2D630094B882 /* LoginViewController.swift in Sources */,
 				5467E98323248FB400E65C9C /* NumberTableViewCell.swift in Sources */,
 				54562A5C2335285B005BD448 /* DetailViewController.swift in Sources */,
 				548EEC8E232CB0470009645D /* SGA.swift in Sources */,
@@ -363,7 +367,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 92W2D7GEE6;
+				DEVELOPMENT_TEAM = 8L3J5KKFY7;
 				INFOPLIST_FILE = "$(SRCROOT)/GrinnellDB/Supporting files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -381,7 +385,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 92W2D7GEE6;
+				DEVELOPMENT_TEAM = 8L3J5KKFY7;
 				INFOPLIST_FILE = "$(SRCROOT)/GrinnellDB/Supporting files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -150,9 +150,21 @@ class SearchViewController: UITableViewController {
     let hiatus: [String] = ["None",
                             "Grinnell in London",
                             "Grinnell in Washington"]
+    
+    let defaults = UserDefaults.standard
 
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if let cookie = defaults.string(forKey: "cookie") {
+            if !isCookieValid(cookieValue: cookie) {
+                createAlert(title: "invalid cookie", message: "expire")
+            }
+        } else {
+            createAlert(title: "cookie?", message: "need cookie")
+        }
     }
     
     var isExpanded: [Bool] = Array(repeating: false, count: 9) //todo
@@ -259,6 +271,26 @@ class SearchViewController: UITableViewController {
         }
         return CGFloat(61.0)
     }
+    
+    // MARK: - Login
+    
+    func isCookieValid(cookieValue cookie: String) -> Bool {
+        // TODO: implement cookie verification
+        return false
+    }
+    
+    func createAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: { (action) in
+            alert.dismiss(animated: true, completion: nil)
+            self.performSegue(withIdentifier: "login", sender: self)
+        }))
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    // MARK: - Segue
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         for cell in self.tableView.visibleCells {
