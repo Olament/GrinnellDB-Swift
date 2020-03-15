@@ -9,15 +9,23 @@
 import Foundation
 
 class Faculty: Person {
-    let titles: [String]
-    let departments: [String]
-    let spouse: String
+    var title: String?
+    var department: String?
+    var spouse: String?
     
-    override init(dictionary dic: [String: Any]) {        
-        titles = dic["titles"] as! [String]
-        departments = dic["departments"] as! [String]
-        spouse = dic["spouse"] as! String
+    private enum CodingKeys: String, CodingKey {
+        case title
+        case department
+        case spouse
+    }
+    
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
         
-        super.init(dictionary: dic)
+        self.title = try? container.decode(String.self, forKey: .title)
+        self.department = try? container.decode(String.self, forKey: .department)
+        self.spouse = try? container.decode(String.self, forKey: .spouse)
+        
+        try super.init(from: decoder)
     }
 }

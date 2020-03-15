@@ -8,36 +8,35 @@
 
 import Foundation
 
-class Person {
+class Person: Decodable {
     /* define type of Person */
-    enum personType: String {
-        case faculty = "faculty"
-        case student = "student"
+    enum personType: String, Decodable {
+        case faculty = "Faculty"
+        case student = "Student"
         case SGA = "SGA"
     }
+
+    var type: personType = personType.student
+    let firstName: String?
+    let lastName: String?
+    let userName: String?
+    let box: String?
+    let email: String?
+    let address: String?
+    let phone: String?
+    let imgPath: String?
+    let homeAddress: String?
     
-    let type: personType
-    let firstName: String
-    let lastName: String
-    let userName: String
-    let box: String
-    let email: String
-    let address: String
-    let phone: String
-    let imgPath: URL
-    let homeAddress: String
-    
-    /* i know, ugly way to implement it here, will fix later */
-    init(dictionary dic: [String: Any]) {
-        type = personType(rawValue: dic["personType"] as! String)!
-        firstName = dic["firstName"] as! String
-        lastName = dic["lastName"] as! String
-        userName = dic["userName"] as! String
-        box = dic["box"] as! String
-        email = dic["email"] as! String
-        address = dic["address"] as! String
-        phone = dic["phone"] as! String
-        imgPath = URL(string: dic["imgPath"] as! String)!
-        homeAddress = dic["homeAddress"] as! String
+    private enum CodingKeys: String, CodingKey {
+        case type
+        case firstName
+        case lastName
+        case userName
+        case box
+        case email
+        case address
+        case phone
+        case imgPath
+        case homeAddress
     }
 }

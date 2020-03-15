@@ -9,17 +9,27 @@
 import Foundation
 
 class Student: Person {
-    let nickName: String
-    let classYear: String
-    let major: String
-    let minor: String
     
-    override init(dictionary dic: [String : Any]) {
-        nickName = dic["nickName"] as! String
-        classYear = dic["classYear"] as! String
-        major = dic["major"] as! String
-        minor = dic["minor"] as! String
+    var nickName: String?
+    var classYear: String?
+    var major: String?
+    var minor: String?
+    
+    private enum CodingKeys: String, CodingKey {
+        case nickName
+        case classYear
+        case major
+        case minor
+    }
         
-        super.init(dictionary: dic)
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+
+        self.nickName = try? container.decode(String.self, forKey: .nickName)
+        self.classYear = try? container.decode(String.self, forKey: .classYear)
+        self.major = try? container.decode(String.self, forKey: .major)
+        self.minor = try? container.decode(String.self, forKey: .minor)
+
+        try super.init(from: decoder)
     }
 }
