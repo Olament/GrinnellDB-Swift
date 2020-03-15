@@ -136,7 +136,7 @@ class ListViewController: UITableViewController {
                 attributes[NSAttributedString.Key.foregroundColor] = UIColor.black
             }
             cell.detail.attributedText = NSAttributedString(string: detailText, attributes: attributes)
-            
+            cell.detail.textContainer.lineBreakMode = .byCharWrapping
             
             /* load image */
             if let image = imageCache[indexPath.row] {
