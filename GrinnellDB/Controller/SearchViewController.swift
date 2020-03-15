@@ -159,9 +159,7 @@ class SearchViewController: UITableViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         if let cookie = defaults.string(forKey: "cookie") {
-            if !isCookieValid(cookieValue: cookie) {
-                createAlert(title: "invalid cookie", message: "expire")
-            }
+            checkCookieValidity(cookieValue: cookie)
         } else {
             createAlert(title: "cookie?", message: "need cookie")
         }
@@ -274,9 +272,27 @@ class SearchViewController: UITableViewController {
     
     // MARK: - Login
     
-    func isCookieValid(cookieValue cookie: String) -> Bool {
-        // TODO: implement cookie verification
-        return false
+    func checkCookieValidity(cookieValue cookie: String) {
+        /* sketchy way of checking validity of cookie */
+        var urlString = "http://appdev.grinnell.edu:3000/api/v1/ios/fetch?lastName=Zixuan&token="
+        urlString += cookie
+                
+        URLSession.shared.dataTask(with: URL(string: urlString)!) { (data, response, err) in
+            guard let data = data else {
+                return
+            }
+                
+            do {
+                let response = try JSONDecoder().decode(QueryResult.self, from: data)
+                if !response.errMessage.isEmpty {
+                    DispatchQueue.main.async {
+                        self.createAlert(title: "invalid cookie", message: "need cookie")
+                    }
+                }
+            } catch let jsonerr {
+                print(jsonerr)
+            }
+        }.resume()
     }
     
     func createAlert(title: String, message: String) {
@@ -306,50 +322,7 @@ class SearchViewController: UITableViewController {
         //print(params) // debug
         
         if let listVC = segue.destination as? ListViewController {
-            // mock data
-            let zixuanGuo: [String: Any] = ["personType": "student",
-                                            "firstName": "Zixuan",
-                                            "lastName": "Guo",
-                                            "userName": "guozixua",
-                                            "box": "3603",
-                                            "email": "guozixua@grinnell.edu",
-                                            "address": "None",
-                                            "phone": "(641)-2255-332",
-                                            "imgPath": "https://itwebapps.grinnell.edu/PcardImages/moved/98115.jpg",
-                                            "homeAddress": "None",
-                                            "nickName": "None",
-                                            "classYear": "2021",
-                                            "major": "Computer Science",
-                                            "minor": "Biology"]
-            
-//            person2.firstName=@"Peter-Michael";
-//            person2.lastName=@"Osera";
-//            person2.email=@"oserapet@grinnell.edu";
-//            person2.address=@"3811 Science";
-//            person2.box=@"SCIE";
-//            person2.phone=@"4010";
-//            person2.homeAddress=@"1804 3rd Ave";
-//            person2.titles=@[@"Assistant Professor of Computer Science", @"Department Chair of Computer Science"];
-//            person2.departments=@[@"Computer Science", @"Music"];
-//            person2.imgPath=[NSURL URLWithString:@"https://itwebapps.grinnell.edu/PcardImages/moved/84326.jpg"];
-            
-            let peterMichaelOsera: [String: Any] = ["personType": "faculty",
-                                               "firstName": "Peter-Michael",
-                                               "lastName": "Osera",
-                                               "userName": "oserapet",
-                                               "box": "SCIE",
-                                               "email": "oserapet@grinnell.edu",
-                                               "address": "None",
-                                               "phone": "4010",
-                                               "imgPath": "https://itwebapps.grinnell.edu/PcardImages/moved/84326.jpg",
-                                               "homeAddress": "1804 3rd Ave",
-                                               "titles": ["Assistant Professor of Computer Science", "Department Chair of Computer Science"],
-                                               "departments": ["Computer Science", "Music"],
-                                               "spouse": "Null"]
-            
-            let zixuan = Student(dictionary: zixuanGuo)
-            let peter = Faculty(dictionary: peterMichaelOsera)
-            listVC.people = [zixuan, peter, zixuan, zixuan, zixuan, zixuan, zixuan, zixuan]
+            listVC.params = self.params
         }
     }
 }
