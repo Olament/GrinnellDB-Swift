@@ -13,7 +13,7 @@ class ListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        fetch()
+        fetch(at: 1)
     }
     
     // MARK: - Query
@@ -21,7 +21,11 @@ class ListViewController: UITableViewController {
     var params: [String: String?] = [:]
     let defaults = UserDefaults.standard
     
-    func fetch() {
+    var currentPage: Int = 1
+    var maxPage: Int = 1
+    var isLoadingList: Bool = false // you do not want to load twice
+    
+    func fetch(at page: Int) {
         guard let cookie = defaults.string(forKey: "cookie") else { return }
         
         /* translate parameters to query dictionary */
@@ -39,12 +43,16 @@ class ListViewController: UITableViewController {
                                        "campusquery": (params["Campus Address or P.O. Box"] ?? "") ?? "",
                                        "token": cookie]
        
-        var searchURLComponents = URLComponents(string: "http://appdev.grinnell.edu:3000/api/v1/ios/fetch?")
-                
+        var searchURLComponents = URLComponents(string: "https://appdev.grinnell.edu/api/db/v1/fetch?")
+           
+        /* search parameters */
         var querys: [URLQueryItem] = []
         for (key, value) in query {
             querys.append(URLQueryItem(name: key, value: value))
         }
+        
+        /* page to fetch */
+        querys.append(URLQueryItem(name: "page", value: String(page)))
 
         searchURLComponents?.queryItems = querys
         let url = searchURLComponents!.url!
@@ -52,10 +60,14 @@ class ListViewController: UITableViewController {
         URLSession.shared.dataTask(with: url) { (data, response, err) in
             guard let data = data else { return }
             
-            print(data.prettyPrintedJSONString)
+            //print(data.prettyPrintedJSONString)
             
             do {
                 let results = try JSONDecoder().decode(QueryResult.self, from: data)
+                
+                if let maxPage = results.maximumPage {
+                    self.maxPage = maxPage
+                }
                                 
                 for person in results.content! {
                     if let student = person as? Student {
@@ -73,6 +85,8 @@ class ListViewController: UITableViewController {
                 print(jsonerr)
             }
         }.resume()
+        
+        self.isLoadingList = false // finish loading
     }
 
     // MARK: - Table view data source
@@ -146,6 +160,15 @@ class ListViewController: UITableViewController {
         return UITableViewCell()
     }
     
+    /* pagination */
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if !isLoadingList && (indexPath.row == people.count - 1) && (currentPage < maxPage) {
+            isLoadingList = true
+            fetch(at: currentPage + 1)
+            currentPage += 1
+        }
+    }
+    
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -158,8 +181,9 @@ class ListViewController: UITableViewController {
     }
 }
 
+/* DEBUGGING: for displaying JSON */
 extension Data {
-    var prettyPrintedJSONString: NSString? { /// NSString gives us a nice sanitized debugDescription
+    var prettyPrintedJSONString: NSString? {
         guard let object = try? JSONSerialization.jsonObject(with: self, options: []),
               let data = try? JSONSerialization.data(withJSONObject: object, options: [.prettyPrinted]),
               let prettyPrintedString = NSString(data: data, encoding: String.Encoding.utf8.rawValue) else { return nil }
