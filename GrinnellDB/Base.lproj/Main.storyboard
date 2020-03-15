@@ -160,10 +160,9 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ZV-V0-dmD" userLabel="Name">
-                                            <rect key="frame" x="149" y="11" width="233" height="33"/>
+                                            <rect key="frame" x="149" y="11" width="216" height="33"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="33" id="jvF-V8-j72"/>
-                                                <constraint firstAttribute="width" constant="233" id="vJd-ak-Wf8"/>
                                             </constraints>
                                             <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                             <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -171,9 +170,8 @@
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         </textView>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oXi-fF-EYh" userLabel="Detail">
-                                            <rect key="frame" x="149" y="45" width="240" height="100"/>
+                                            <rect key="frame" x="149" y="45" width="216" height="100"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="240" id="TW7-6f-PDv"/>
                                                 <constraint firstAttribute="height" constant="100" id="bDS-hW-q65"/>
                                             </constraints>
                                             <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
@@ -194,7 +192,9 @@
                                         <constraint firstItem="9ZV-V0-dmD" firstAttribute="leading" secondItem="jQY-1Z-yEn" secondAttribute="trailing" constant="25" id="AY3-bG-bXs"/>
                                         <constraint firstItem="oXi-fF-EYh" firstAttribute="leading" secondItem="jQY-1Z-yEn" secondAttribute="trailing" constant="25" id="B5r-eX-Cqk"/>
                                         <constraint firstItem="jQY-1Z-yEn" firstAttribute="leading" secondItem="qYd-eb-zgg" secondAttribute="leading" constant="30" id="IdR-3P-jLt"/>
+                                        <constraint firstAttribute="trailing" secondItem="oXi-fF-EYh" secondAttribute="trailing" constant="10" id="XNW-IM-3EQ"/>
                                         <constraint firstItem="9ZV-V0-dmD" firstAttribute="top" secondItem="qYd-eb-zgg" secondAttribute="topMargin" id="gdJ-Lg-YVZ"/>
+                                        <constraint firstAttribute="trailing" secondItem="9ZV-V0-dmD" secondAttribute="trailing" constant="10" id="t6A-ay-SsZ"/>
                                         <constraint firstItem="jQY-1Z-yEn" firstAttribute="centerY" secondItem="qYd-eb-zgg" secondAttribute="centerY" id="wDi-AZ-tzR"/>
                                     </constraints>
                                 </tableViewCellContentView>
