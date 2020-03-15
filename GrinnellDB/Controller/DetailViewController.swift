@@ -21,32 +21,29 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         super.viewDidLoad()
         
         if let student = person as? Student {
-            label = [("Major", student.major),
-                     ("Class", student.classYear),
-                     ("Email", student.email),
-                     ("Campus Box", student.box),
-                     ("Campus Address", student.address)]
-        } else if let faculty = person as? Faculty {
-            let titles = faculty.titles.joined(separator: "\n")
-            let departments = faculty.departments.joined(separator: "\n")
-            
-            label = [("Titles", titles),
-                     ("Departments", departments),
-                     ("Campus Phone", faculty.phone),
-                     ("Email", faculty.email),
-                     ("Campus Address", faculty.address),
-                     ("Campus Box", faculty.box)]
+            label = [("Major", student.major ?? "Null"),
+                     ("Class", student.classYear ?? "Null"),
+                     ("Email", student.email ?? "Null"),
+                     ("Campus Box", student.box ?? "Null"),
+                     ("Campus Address", student.address ?? "Null")]
+        } else if let faculty = person as? Faculty {            
+            label = [("Titles", faculty.title ?? "Null"),
+                     ("Departments", faculty.department ?? "Null"),
+                     ("Campus Phone", faculty.phone ?? "Null"),
+                     ("Email", faculty.email ?? "Null"),
+                     ("Campus Address", faculty.address ?? "Null"),
+                     ("Campus Box", faculty.box ?? "Null")]
         } else if let sga = person as? SGA {
             let officeHours = sga.officeHours.joined(separator: "\n")
             
-            label = [("SGA Position", sga.positionName),
-                     ("Office Email", sga.officeEmail),
+            label = [("SGA Position", sga.positionName ?? "Null"),
+                     ("Office Email", sga.officeEmail ?? "Null"),
                      ("Office Hours", officeHours),
-                     ("Major", sga.major),
-                     ("Class", sga.classYear),
-                     ("Email", sga.officeEmail),
-                     ("Campus Box", sga.box),
-                     ("Campus Address", sga.officeAddress)]
+                     ("Major", sga.major ?? "Null"),
+                     ("Class", sga.classYear ?? "Null"),
+                     ("Email", sga.officeEmail ?? "Null"),
+                     ("Campus Box", sga.box ?? "Null"),
+                     ("Campus Address", sga.officeAddress ?? "Null")]
         }
     }
 
@@ -63,7 +60,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0, let cell = tableView.dequeueReusableCell(withIdentifier: "profileCell", for: indexPath) as? ProfileTableViewCell {
             cell.profileImage.image = self.profileImage
-            cell.name.text = person!.firstName + " " + person!.lastName
+            cell.name.text = (person?.firstName ?? "") + " " + (person?.lastName ?? "")
             return cell
         } else if let cell = tableView.dequeueReusableCell(withIdentifier: "attributeCell", for: indexPath) as? AttributeTableViewCell {
             let text = label[indexPath.row - 1]
@@ -97,7 +94,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         if MFMailComposeViewController.canSendMail() {
             let mail = MFMailComposeViewController()
             mail.mailComposeDelegate = self
-            mail.setToRecipients([person!.email])
+            mail.setToRecipients([person?.email ?? "Null"])
             
             present(mail, animated: true)
         }
