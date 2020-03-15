@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5425024A241D2D630094B882 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54250249241D2D630094B882 /* LoginViewController.swift */; };
+		5425026D241D8E0E0094B882 /* QueryResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5425026C241D8E0E0094B882 /* QueryResult.swift */; };
 		54562A5C2335285B005BD448 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54562A5B2335285B005BD448 /* DetailViewController.swift */; };
 		5467E96B23244ADC00E65C9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5467E96A23244ADC00E65C9C /* AppDelegate.swift */; };
 		5467E97023244ADC00E65C9C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5467E96E23244ADC00E65C9C /* Main.storyboard */; };
@@ -29,6 +30,7 @@
 
 /* Begin PBXFileReference section */
 		54250249241D2D630094B882 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		5425026C241D8E0E0094B882 /* QueryResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryResult.swift; sourceTree = "<group>"; };
 		54562A5B2335285B005BD448 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		5467E96723244ADC00E65C9C /* GrinnellDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GrinnellDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5467E96A23244ADC00E65C9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 				54B3ABD6232CB199002E2DBE /* Faculty.swift */,
 				5479B3DA232CA9D1002160F5 /* Student.swift */,
 				548EEC8D232CB0470009645D /* SGA.swift */,
+				5425026C241D8E0E0094B882 /* QueryResult.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -207,6 +210,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				547D467C233540A70058D767 /* AttributeTableViewCell.swift in Sources */,
+				5425026D241D8E0E0094B882 /* QueryResult.swift in Sources */,
 				54B3ABDA232CC122002E2DBE /* ResultTableViewCell.swift in Sources */,
 				54B3ABD7232CB199002E2DBE /* Faculty.swift in Sources */,
 				5425024A241D2D630094B882 /* LoginViewController.swift in Sources */,
