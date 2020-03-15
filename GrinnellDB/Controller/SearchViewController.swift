@@ -274,7 +274,7 @@ class SearchViewController: UITableViewController {
     
     func checkCookieValidity(cookieValue cookie: String) {
         /* sketchy way of checking validity of cookie */
-        var urlString = "http://appdev.grinnell.edu:3000/api/v1/ios/fetch?lastName=Zixuan&token="
+        var urlString = "https://appdev.grinnell.edu/api/db/v1/fetch?lastName=Zixuan&token="
         urlString += cookie
                 
         URLSession.shared.dataTask(with: URL(string: urlString)!) { (data, response, err) in
