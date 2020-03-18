@@ -57,6 +57,8 @@ class ListViewController: UITableViewController {
         searchURLComponents?.queryItems = querys
         let url = searchURLComponents!.url!
         
+        print("URLLLLLLL \(url)")
+        
         URLSession.shared.dataTask(with: url) { (data, response, err) in
             guard let data = data else { // no internet connection
                 DispatchQueue.main.async {

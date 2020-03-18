@@ -325,6 +325,23 @@ class SearchViewController: UITableViewController {
             listVC.params = self.params
         }
     }
+    
+    // MARK: - Reset
+    @IBAction func resetButtonTapped(_ sender: Any) {
+        print("reset")
+        for cell in self.tableView.visibleCells {
+            if let textCell = cell as? TextTableViewCell {
+                textCell.textField.text = ""
+            } else if let numberCell = cell as? NumberTableViewCell {
+                numberCell.numberField.text = ""
+            } else if let pickerCell = cell as? PickerViewTableViewCell {
+                pickerCell.textField.text = ""
+                pickerCell.pickerView.selectRow(0, inComponent: 0, animated: false)
+            }
+        }
+    }
+    
+    
 }
 
 extension UITextField {
@@ -358,3 +375,5 @@ extension UITextField {
         self.resignFirstResponder()
     }
 }
+
+

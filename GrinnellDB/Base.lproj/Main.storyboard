@@ -109,6 +109,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Search" id="Y6C-GD-Gq7">
+                        <barButtonItem key="leftBarButtonItem" title="Reset" id="1M5-vh-tc1">
+                            <connections>
+                                <action selector="resetButtonTapped:" destination="zqG-ZZ-kep" id="etb-WX-dYa"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="ozy-lq-DIO">
                             <connections>
                                 <segue destination="vsp-Fk-rdG" kind="show" identifier="search" id="dc9-Ty-HO2"/>
