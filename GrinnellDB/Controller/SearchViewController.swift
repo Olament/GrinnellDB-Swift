@@ -252,6 +252,8 @@ class SearchViewController: UITableViewController {
             }
             isExpanded[indexPath.row] = !isExpanded[indexPath.row]
             tableView.reloadRows(at: [indexPath], with: .automatic)
+            
+            self.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
         }
     }
     
