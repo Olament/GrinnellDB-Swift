@@ -161,7 +161,7 @@ class SearchViewController: UITableViewController {
         if let cookie = defaults.string(forKey: "cookie") {
             checkCookieValidity(cookieValue: cookie)
         } else {
-            createAlert(title: "cookie?", message: "need cookie")
+            createAlert(title: "Login Needed", message: "You need to login with your Grinnell College account in order to use GrinnellDB")
         }
     }
     
@@ -286,7 +286,7 @@ class SearchViewController: UITableViewController {
                 let response = try JSONDecoder().decode(QueryResult.self, from: data)
                 if !response.errMessage.isEmpty {
                     DispatchQueue.main.async {
-                        self.createAlert(title: "invalid cookie", message: "need cookie")
+                        self.createAlert(title: "Invalid Cookie", message: "Please re-login your Grinnell College account")
                     }
                 }
             } catch let jsonerr {
