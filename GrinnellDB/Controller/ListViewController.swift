@@ -58,28 +58,54 @@ class ListViewController: UITableViewController {
         let url = searchURLComponents!.url!
         
         URLSession.shared.dataTask(with: url) { (data, response, err) in
-            guard let data = data else { return }
-            
-            //print(data.prettyPrintedJSONString)
+            guard let data = data else { // no internet connection
+                DispatchQueue.main.async {
+                    self.tableView.setErrorMessage("No internet connection. Make sure you connect to Grinnell College's network")
+                }
+                return
+            }
             
             do {
                 let results = try JSONDecoder().decode(QueryResult.self, from: data)
-                
+
                 if let maxPage = results.maximumPage {
                     self.maxPage = maxPage
                 }
-                                
-                for person in results.content! {
-                    if let student = person as? Student {
-                        self.people.append(student)
-                    } else if let faculty = person as? Faculty {
-                        self.people.append(faculty)
-                    } else if let sga = person as? SGA {
-                        self.people.append(sga)
+                
+                if results.status == 400 { // too many people
+                    DispatchQueue.main.async {
+                        self.tableView.setErrorMessage("Found too many people, please narrow the range")
                     }
-                }
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
+                } else if results.status == 401 { // cookie expire
+                    DispatchQueue.main.async {
+                        self.tableView.setErrorMessage("Cookie expired, please try again")
+                    }
+                } else { // successful query
+                    if let contents = results.content {
+                        if contents.count > 0 {
+                            for person in contents {
+                                if let student = person as? Student {
+                                    self.people.append(student)
+                                } else if let faculty = person as? Faculty {
+                                    self.people.append(faculty)
+                                } else if let sga = person as? SGA {
+                                    self.people.append(sga)
+                                }
+                            }
+                        } else {
+                            DispatchQueue.main.async {
+                                self.tableView.setErrorMessage("Your query found no matches")
+                            }
+                        }
+                        
+                        DispatchQueue.main.async {
+                            self.tableView.reloadData()
+                        }
+                    } else { // unknown bug
+                        DispatchQueue.main.async {
+                            self.tableView.setErrorMessage("Unknown error")
+                        }
+                    }
                 }
             } catch let jsonerr {
                 print(jsonerr)
@@ -189,5 +215,26 @@ extension Data {
               let prettyPrintedString = NSString(data: data, encoding: String.Encoding.utf8.rawValue) else { return nil }
 
         return prettyPrintedString
+    }
+}
+
+/* display error message */
+extension UITableView {
+    func setErrorMessage(_ message: String) {
+        let messageLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.bounds.size.width, height: self.bounds.size.height))
+        messageLabel.text = message
+        messageLabel.textColor = .black
+        messageLabel.textAlignment = .center
+        messageLabel.font = UIFont(name: "TrebuchetMS", size: 15)
+        messageLabel.sizeToFit()
+        messageLabel.numberOfLines = 0
+
+        self.backgroundView = messageLabel
+        self.separatorStyle = .none
+    }
+
+    func restore() {
+        self.backgroundView = nil
+        self.separatorStyle = .singleLine
     }
 }
