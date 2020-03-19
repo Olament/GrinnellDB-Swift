@@ -16,17 +16,17 @@ class SGA: Person {
     var officeAddress: String?
     var officeBox: String?
     var positionName: String?
-    var officeHours: [String] = []
+    var officeHours: String?
     
     private enum CodingKeys: String, CodingKey {
         case major
         case classYear
-        case officePhone
-        case officeEmail
-        case officeAddress
-        case officeBox
-        case positionName
-        case officeHours
+        case SGAphone
+        case SGAemail
+        case SGAoffice
+        case SGAbox
+        case SGAtitle
+        case SGAofficeHour
     }
     
     required init(from decoder: Decoder) throws {
@@ -34,11 +34,12 @@ class SGA: Person {
 
         self.major = try? container.decode(String.self, forKey: .major)
         self.classYear = try? container.decode(String.self, forKey: .classYear)
-        self.officePhone = try? container.decode(String.self, forKey: .officePhone)
-        self.officeEmail = try? container.decode(String.self, forKey: .officeEmail)
-        self.officeAddress = try? container.decode(String.self, forKey: .officeAddress)
-        self.officeBox = try? container.decode(String.self, forKey: .officeBox)
-        self.positionName = try? container.decode(String.self, forKey: .positionName)
+        self.officePhone = try? container.decode(String.self, forKey: .SGAphone)
+        self.officeEmail = try? container.decode(String.self, forKey: .SGAemail)
+        self.officeAddress = try? container.decode(String.self, forKey: .SGAoffice)
+        self.officeBox = try? container.decode(String.self, forKey: .SGAbox)
+        self.positionName = try? container.decode(String.self, forKey: .SGAtitle)
+        self.officeHours = try? container.decode(String.self, forKey: .SGAofficeHour)
 
         try super.init(from: decoder)
     }

@@ -17,6 +17,8 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var person: Person?
     var profileImage: UIImage?
     
+    let defaults = UserDefaults.standard // default storage
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,17 +36,25 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
                      ("Campus Address", faculty.address ?? "Null"),
                      ("Campus Box", faculty.box ?? "Null")]
         } else if let sga = person as? SGA {
-            let officeHours = sga.officeHours.joined(separator: "\n")
+            let officeHours = sga.officeHours
             
             label = [("SGA Position", sga.positionName ?? "Null"),
                      ("Office Email", sga.officeEmail ?? "Null"),
-                     ("Office Hours", officeHours),
+                     ("Office Hours", officeHours ?? "Null"),
                      ("Major", sga.major ?? "Null"),
                      ("Class", sga.classYear ?? "Null"),
                      ("Email", sga.officeEmail ?? "Null"),
                      ("Campus Box", sga.box ?? "Null"),
-                     ("Campus Address", sga.officeAddress ?? "Null")]
+                     ("Office address", sga.officeAddress ?? "Null")]
         }
+        
+        fetch() // fetch details
+    }
+    
+    // MARK: - Detail view JSON fetch
+    
+    func fetch() {
+        
     }
 
     // MARK: - Table view data source
@@ -89,7 +99,6 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     /* sending message */
-    
     @IBAction func sendMessage(_ sender: Any) {
         if MFMailComposeViewController.canSendMail() {
             let mail = MFMailComposeViewController()
