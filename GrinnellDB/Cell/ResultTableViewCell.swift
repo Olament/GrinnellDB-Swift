@@ -20,6 +20,7 @@ class ResultTableViewCell: UITableViewCell {
         name.isUserInteractionEnabled = false
         detail.isUserInteractionEnabled = false
         
+        name.textContainer.lineBreakMode = .byTruncatingTail
         detail.textContainer.lineBreakMode = .byWordWrapping
     }
 }
