@@ -11,6 +11,8 @@ import MessageUI
 
 class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMailComposeViewControllerDelegate {
     
+    @IBOutlet weak var tableView: UITableView!
+    
     var label: [(String, String)] = []
     var height: [Double] = []
     
@@ -43,18 +45,51 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
                      ("Office Hours", officeHours ?? "Null"),
                      ("Major", sga.major ?? "Null"),
                      ("Class", sga.classYear ?? "Null"),
-                     ("Email", sga.officeEmail ?? "Null"),
+                     ("Email", sga.email ?? "Null"),
                      ("Campus Box", sga.box ?? "Null"),
                      ("Office address", sga.officeAddress ?? "Null")]
         }
         
-        fetch() // fetch details
+        if person!.type == .faculty { // only need fetch more details if person is faculty
+            fetch()
+        }
     }
     
     // MARK: - Detail view JSON fetch
     
     func fetch() {
+        guard let cookie = defaults.string(forKey: "cookie") else { return }
         
+        var searchURLComponents = URLComponents(string: "https://appdev.grinnell.edu/api/db/v1/person?")
+        
+        var querys: [URLQueryItem] = []
+        querys.append(URLQueryItem(name: "username", value: person?.userName))
+        querys.append(URLQueryItem(name: "token", value: cookie))
+            
+        searchURLComponents?.queryItems = querys
+        let url = searchURLComponents!.url!
+        
+        print(url)
+        
+        URLSession.shared.dataTask(with: url) { (data, response, err) in
+            guard let data = data else { return }
+            
+            print(data.prettyPrintedJSONString)
+            
+            do {
+                let result = try JSONDecoder().decode(facultyDetail.self, from: data)
+                
+                DispatchQueue.main.async {
+                    self.label.append(("Home Address", result.homeAddress))
+                    self.label.append(("Spouse/Partner", result.spouse))
+                    self.label.append(("Home Phone", result.homePhone))
+                    
+                    self.tableView.reloadData()
+                }
+            } catch let jsonerr {
+                print(jsonerr)
+            }
+        }.resume()
     }
 
     // MARK: - Table view data source

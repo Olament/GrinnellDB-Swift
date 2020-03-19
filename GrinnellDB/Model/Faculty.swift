@@ -29,3 +29,15 @@ class Faculty: Person {
         try super.init(from: decoder)
     }
 }
+
+struct facultyDetail: Decodable {
+    let homeAddress: String
+    let homePhone: String
+    let spouse: String
+    
+    private enum CodingKeys: String, CodingKey {
+        case homeAddress = "Home Addr"
+        case homePhone = "Home Phone"
+        case spouse = "Spouse/Partner"
+    }
+}
