@@ -12,6 +12,7 @@ class SearchViewController: UITableViewController {
     
     let searchFieldSimple: [String] = ["First name",
                                        "Last name"]
+    
     let searchFieldDetail: [String] = ["Campus Address or P.O. Box",
                                        "Fac/Staff Dept/Office",
                                        "Student Major",
@@ -20,7 +21,8 @@ class SearchViewController: UITableViewController {
                                        "Campus Phone",
                                        "Home Address",
                                        "SGA",
-                                       "Concentration"] // delete student class temporary
+                                       "Concentration",
+                                       "Student Class"] // delete student class temporary
     
     let optionToCellType: [String: String] = ["First name": "TextCell",
                                               "Last name": "TextCell",
@@ -36,22 +38,31 @@ class SearchViewController: UITableViewController {
                                               "Student Class": "PickerCell"]
     
     /* data for each option */
-    let major: [String] = ["None",
+    let major: [String] = ["",
                            "Anthropology",
                            "Art History",
                            "Biological Chemistry",
                            "Biology",
+                           "Certificate",
                            "Chemistry",
                            "Chinese",
                            "Classics",
                            "Computer Science",
                            "Economics",
                            "English",
+                           "Exchange Student",
                            "French",
-                           "Gender, Women's and Sexuality Studies",
-                           "General Science",
+                           "Gender, Womens, & Sexuality St",
+                           "General Science-Biology",
+                           "General Science-Chemistry",
+                           "General Science-Computer Sci",
+                           "General Science-Math",
+                           "General Science-Physics",
+                           "General Science-Psychology",
                            "German",
+                           "German Studies",
                            "History",
+                           "Independent",
                            "Mathematics",
                            "Music",
                            "Philosophy",
@@ -63,93 +74,151 @@ class SearchViewController: UITableViewController {
                            "Sociology",
                            "Spanish",
                            "Studio Art",
-                           "Theatre and Dance"]
-    let department: [String] = ["None",
-                                "Academic Advising",
-                                "Academic Affairs and Dean of the College",
-                                "Accessibility and Disability Services",
+                           "Theatre and Dance",
+                           "Undeclared"]
+    
+    let department: [String] = ["",
                                 "Accounting",
                                 "Admission",
-                                "Analytic Support and Institutional Research",
-                                "Auxiliary Services and Economic Development",
-                                "Benefits and Insurance",
-                                "Black Cultural Center",
-                                "Bookstore (Pioneer Bookshop)",
+                                "Analytics & Inst. Research",
+                                "Anthropology",
+                                "Art and Art History",
+                                "Athletics",
+                                "Aux Services & Economic Dev",
+                                "Biology",
+                                "Bookstore",
                                 "Campus Safety",
-                                "Cashier",
-                                "Catering",
-                                "Center for Careers, Life, and Service",
-                                "Center for Religion, Spirituality, and Social Justice",
+                                "Careers, Life, and Service",
+                                "Center International Studies",
+                                "Center Teach, Learn & Assess",
+                                "Chemistry",
+                                "Chinese & Japanese",
+                                "Classics (Greek & Latin)",
+                                "College Contacts",
+                                "Comm. Enhancement & Engagement",
                                 "Communications",
-                                "Community Enhancement and Engagement",
-                                "Conference Operations and Events",
-                                "Corporate, Foundation, and Government Relations",
-                                "Development and Alumni Relations",
-                                "Dining",
-                                "Disability Resources",
-                                "Diversity and Inclusion",
-                                "Environmental Stewardship",
+                                "Computer Science",
+                                "Conference Operations & Events",
+                                "Corp. Found. & Gov't Rel.",
+                                "CRSSJ",
+                                "Dean of the College",
+                                "Development & Alumni Relations",
+                                "Dining Services",
+                                "Economics",
+                                "Education",
+                                "English",
                                 "Facilities Management",
-                                "Faulconer Gallery",
                                 "Financial Aid",
-                                "Grinnell Prize",
+                                "French and Arabic",
+                                "Gender, Women's and Sexuality Studies",
+                                "German",
+                                "Grinnell College Museum of Art",
+                                "Grinnell-In-London",
+                                "Grinnell-In-Washington",
+                                "History",
                                 "Human Resources",
-                                "Information Technology Services",
-                                "Institutional Planning and Budget Planning",
-                                "Intercultural Affairs",
-                                "International Student Affairs",
-                                "Investment Office",
-                                "Libraries",
+                                "Information Technology Service",
+                                "Inst. for Global Engagement",
+                                "Library",
                                 "Mail Services",
-                                "New Student Orientation",
+                                "Math Lab",
+                                "Mathematics & Statistics",
+                                "Midwest Conference",
+                                "Music",
                                 "Off-Campus Study",
-                                "Ombuds",
-                                "Pioneer Bookshop",
+                                "Office of Investments",
+                                "Office of the Ombuds",
+                                "Office of the Treasurer",
+                                "Peace and Conflict Studies Pro",
+                                "Philosophy",
+                                "Physical Education",
+                                "Physics",
+                                "Political Science",
                                 "President",
+                                "Psychology",
+                                "Reading Lab",
                                 "Registrar",
-                                "Research Ethics",
-                                "Residence Life",
-                                "Service and Social Innovation",
-                                "Stonewall Resource Center",
-                                "Strategic Planning",
+                                "Religious Studies",
+                                "Russian",
+                                "Science Dept",
+                                "Sociology",
+                                "Spanish",
                                 "Student Affairs",
-                                "Student Assistance",
-                                "Student Health and Counseling Services",
-                                "Treasurer",
-                                "Wellness"]
-    let SGA: [String] = ["None",
-                         "President",
-                         "Vice President of Academic Affairs",
-                         "Vice President of Student Affairs",
+                                "Student Health & Counseling",
+                                "Student Health & Wellness",
+                                "Theatre and Dance",
+                                "Wilson Program",
+                                "Writing Lab"]
+    
+    let SGA: [String] = ["",
+                         "2020 Class Ambassador",
+                         "2021 Class Ambassador",
+                         "2022 Class Ambassador ",
+                         "2023 Class Ambassador",
                          "Administrative Coordinator",
-                         "Treasurer",
+                         "All Campus Events Coordinator",
                          "Assistant Treasurer",
-                         "All Campus Events Co-Chair",
-                         "Services Coordinator",
-                         "Diversity and Outreach Coordinator",
+                         "CaNaDa Senator",
+                         "Clangrala Senator",
                          "Concerts Chair",
-                         "Senator",
-                         "Class Ambassador",
-                         "Presiding Officer",
-                         "Technical Advisor"]
-    let concentration: [String] = ["None",
+                         "Diversity and Outreach Coordinator",
+                         "Election Board Chair",
+                         "Green Fund Chair",
+                         "Jamaland Senator",
+                         "Judiciary Committee Chair",
+                         "LaKerRoJe Senator",
+                         "Loosehead Senator",
+                         "OCCO Senator",
+                         "OCNCO Senator",
+                         "President",
+                         "President ELECT",
+                         "Student Services Coordinator",
+                         "Technology Advisor",
+                         "Treasurer",
+                         "VP for Academic Affairs",
+                         "VP for Academic Affairs ELECT",
+                         "VP for Student Affairs",
+                         "VP for Student Affairs ELECT"]
+    
+    let concentration: [String] = ["",
                                    "American Studies",
+                                   "American Studies/Policy Studies",
+                                   "American Studies/Russian & East European Stds",
                                    "East Asian Studies",
                                    "Environmental Studies",
-                                   "European Studies",
+                                   "European Studies Concentration",
                                    "Global Development Studies",
+                                   "Global Development Studies/Peace and Conflict Studies",
                                    "Latin American Studies",
                                    "Linguistics",
+                                   "Linguistics/Statistics",
                                    "Neuroscience",
+                                   "Neuroscience/Policy Studies",
                                    "Peace and Conflict Studies",
-                                   "Physical Education",
                                    "Policy Studies",
-                                   "Russian, Central, and Eastern European Studies",
+                                   "Russian & East European Stds",
                                    "Statistics",
+                                   "Statistics/Neuroscience",
                                    "Technology Studies"]
-    let hiatus: [String] = ["None",
-                            "Grinnell in London",
-                            "Grinnell in Washington"]
+    
+    let hiatusValue: [String:String] = ["": "",
+                                 "Off Campus Study": "ACLV",
+                                 "Engineering":"ENGR",
+                                 "Grinnell in London":"GIL",
+                                 "Grinnell in Washington":"GIW"]
+    
+    let hiatusText: [String:String] = ["":"",
+                                       "ACLV":"Off Campus Study",
+                                       "ENGR":"Engineering",
+                                       "GIL":"Grinnell in London",
+                                       "GIW":"Grinnell in Washington"]
+    
+    let classyear: [String] = ["",
+                               "2019",
+                               "2020",
+                               "2021",
+                               "2022",
+                               "2023"]
     
     let defaults = UserDefaults.standard
 
@@ -158,6 +227,7 @@ class SearchViewController: UITableViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         if let cookie = defaults.string(forKey: "cookie") {
             checkCookieValidity(cookieValue: cookie)
         } else {
@@ -165,19 +235,36 @@ class SearchViewController: UITableViewController {
         }
     }
     
-    var isExpanded: [Bool] = Array(repeating: false, count: 9) //todo
-    var params: [String: String?] = ["First name": nil,
-                                     "Last name": nil,
-                                     "Campus Address or P.O. Box": nil,
-                                     "Fac/Staff Dept/Office": nil,
-                                     "Student Major": nil,
-                                     "Hiatus": nil,
-                                     "Computer Username": nil,
-                                     "Campus Phone": nil,
-                                     "Home Address": nil,
-                                     "SGA": nil,
-                                     "Concentration": nil,
-                                     "Student Class": nil]
+    var isExpanded: [Bool] = Array(repeating: false, count: 10) //todo
+    
+    var params: [String: String] = ["First name": "",
+                                     "Last name": "",
+                                     "Campus Address or P.O. Box": "",
+                                     "Fac/Staff Dept/Office": "",
+                                     "Student Major": "",
+                                     "Hiatus": "",
+                                     "Computer Username": "",
+                                     "Campus Phone": "",
+                                     "Home Address": "",
+                                     "SGA": "",
+                                     "Concentration": "",
+                                     "Student Class": ""]
+    
+    func snapshotParams() {
+        for cell in self.tableView.visibleCells {
+            if let textCell = cell as? TextTableViewCell {
+                params[textCell.textField.placeholder ?? ""] = textCell.textField.text
+            } else if let numberCell = cell as? NumberTableViewCell {
+                params[numberCell.numberField.placeholder ?? ""] = numberCell.numberField.text
+            } else if let pickerCell = cell as? PickerViewTableViewCell {
+                if pickerCell.textField.placeholder == "Hiatus" {
+                    params["Hiatus"] = hiatusValue[pickerCell.textField.text ?? ""]
+                } else {
+                    params[pickerCell.textField.placeholder ?? ""] = pickerCell.textField.text
+                }
+            }
+        }
+    }
     
     // MARK: - Table view data source
 
@@ -199,6 +286,8 @@ class SearchViewController: UITableViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: "TextCell", for: indexPath) // no need for check cell type since all TextCell
             if let textCell = cell as? TextTableViewCell {
                 textCell.textField.placeholder = searchFieldSimple[indexPath.row]
+                textCell.textField.text =
+                params[searchFieldDetail[indexPath.row]] ?? ""
                 return textCell
             }
         } else {
@@ -209,11 +298,15 @@ class SearchViewController: UITableViewController {
                 case "TextCell" :
                     if let textCell = cell as? TextTableViewCell {
                         textCell.textField.placeholder = searchFieldDetail[indexPath.row]
+                        textCell.textField.text =
+                            params[searchFieldDetail[indexPath.row]] ?? ""
                         return textCell
                     }
                 case "NumberCell":
                     if let numberCell = cell as? NumberTableViewCell {
                         numberCell.numberField.placeholder = searchFieldDetail[indexPath.row]
+                        numberCell.numberField.text =
+                        params[searchFieldDetail[indexPath.row]] ?? ""
                         return numberCell
                     }
                 case "PickerCell":
@@ -222,15 +315,22 @@ class SearchViewController: UITableViewController {
                         switch searchFieldDetail[indexPath.row] {
                             case "Fac/Staff Dept/Office": pickerCell.options = department
                             case "Student Major": pickerCell.options = major
-                            case "Hiatus": pickerCell.options = hiatus
+                            case "Hiatus": pickerCell.options = Array(hiatusValue.keys)
                             case "Concentration": pickerCell.options = concentration
                             case "SGA": pickerCell.options = SGA
+                            case "Student Class": pickerCell.options = classyear
                             default: break
                         }
-                        if let param = params[searchFieldDetail[indexPath.row]] {
+                        if var param = params[searchFieldDetail[indexPath.row]] {
+                            if searchFieldDetail[indexPath.row] == "Hiatus" {
+                                param = hiatusText[param]!
+                            }
                             pickerCell.textField.text = param
-                            let currentSelectedRow = pickerCell.options.firstIndex(of: param ?? "Null") ?? 0
-                            pickerCell.pickerView.selectRow(currentSelectedRow, inComponent: 0, animated: true)
+                            let currentSelectedRow = pickerCell.options.firstIndex(of: param ) ?? 0
+                            pickerCell.pickerView.selectRow(currentSelectedRow, inComponent: 0, animated: false)
+                        } else {
+                            pickerCell.textField.text = ""
+                            pickerCell.pickerView.selectRow(0, inComponent: 0, animated: false)
                         }
                         pickerCell.pickerView.isHidden = !isExpanded[indexPath.row]
                         return pickerCell
@@ -243,12 +343,46 @@ class SearchViewController: UITableViewController {
         return UITableViewCell()
     }
     
+    override func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if let textCell = cell as? TextTableViewCell {
+            params[textCell.textField.placeholder ?? ""] = textCell.textField.text
+        } else if let numberCell = cell as? NumberTableViewCell {
+            params[numberCell.numberField.placeholder ?? ""] = numberCell.numberField.text
+        } else if let pickerCell = cell as? PickerViewTableViewCell {
+            if pickerCell.textField.placeholder == "Hiatus" {
+                params["Hiatus"] = hiatusValue[pickerCell.textField.text ?? ""]
+            } else {
+                params[pickerCell.textField.placeholder ?? ""] = pickerCell.textField.text
+            }
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if let textCell = cell as? TextTableViewCell {
+            textCell.textField.text = params[textCell.textField.placeholder ?? ""]
+        } else if let numberCell = cell as? NumberTableViewCell {
+            numberCell.numberField.text = params[numberCell.numberField.placeholder ?? ""]
+        } else if let pickerCell = cell as? PickerViewTableViewCell {
+            if pickerCell.textField.placeholder == "Hiatus" {
+                pickerCell.textField.text = hiatusText[params["Hiatus"]!]
+            } else {
+                pickerCell.textField.text = params[pickerCell.textField.placeholder ?? ""]
+            }
+            
+        }
+    }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        snapshotParams()
         if indexPath.section == 1 && optionToCellType[searchFieldDetail[indexPath.row]] == "PickerCell" {
             if isExpanded[indexPath.row],
                 let pickerCell = tableView.cellForRow(at: indexPath) as? PickerViewTableViewCell,
                 let param = pickerCell.textField.text {
-                params[searchFieldDetail[indexPath.row]] = param
+                if pickerCell.textField.placeholder == "Hiatus" {
+                    params[searchFieldDetail[indexPath.row]] = hiatusValue[param]
+                } else {
+                    params[searchFieldDetail[indexPath.row]] = param
+                }
             }
             isExpanded[indexPath.row] = !isExpanded[indexPath.row]
             tableView.reloadRows(at: [indexPath], with: .automatic)
@@ -311,15 +445,7 @@ class SearchViewController: UITableViewController {
     // MARK: - Segue
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        for cell in self.tableView.visibleCells {
-            if let textCell = cell as? TextTableViewCell {
-                params[textCell.textField.placeholder ?? ""] = textCell.textField.text
-            } else if let numberCell = cell as? NumberTableViewCell {
-                params[numberCell.numberField.placeholder ?? ""] = numberCell.numberField.text
-            } else if let pickerCell = cell as? PickerViewTableViewCell {
-                params[pickerCell.textField.placeholder ?? ""] = pickerCell.textField.text
-            }
-        }
+        snapshotParams()
         
         //print(params) // debug
         
@@ -339,11 +465,15 @@ class SearchViewController: UITableViewController {
             } else if let pickerCell = cell as? PickerViewTableViewCell {
                 pickerCell.textField.text = ""
                 pickerCell.pickerView.selectRow(0, inComponent: 0, animated: false)
+                pickerCell.pickerView.isHidden = true
             }
         }
+        isExpanded = Array(repeating: false, count: 10)
+        for (key, _) in params {
+            params[key] = ""
+        }
+        tableView.reloadData()
     }
-    
-    
 }
 
 extension UITextField {
