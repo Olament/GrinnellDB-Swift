@@ -38,9 +38,11 @@ class LoginViewController: UIViewController, WKNavigationDelegate {
             for cookie in cookies {
                 if cookie.name == ".AspNet.Cookies" {
                     self.defaults.set(cookie.value, forKey: "cookie")
+                    dataStore.httpCookieStore.delete(cookie, completionHandler: nil)
                     self.navigationController?.popToRootViewController(animated: true)
                 }
             }
+            
         }
     }
 }
