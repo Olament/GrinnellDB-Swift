@@ -33,3 +33,14 @@ class Student: Person {
         try super.init(from: decoder)
     }
 }
+
+
+struct studentDetail: Decodable {
+    let concentration: String?
+    let homeAddress: String?
+    
+    private enum CodingKeys: String, CodingKey {
+        case concentration = "Concentration"
+        case homeAddress = "Home Addr"
+    }
+}

@@ -50,9 +50,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
                      ("Office address", sga.officeAddress ?? "Null")]
         }
         
-        if person!.type == .faculty { // only need fetch more details if person is faculty
             fetch()
-        }
     }
     
     // MARK: - Detail view JSON fetch
@@ -77,14 +75,31 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
             print(data.prettyPrintedJSONString)
             
             do {
-                let result = try JSONDecoder().decode(facultyDetail.self, from: data)
                 
-                DispatchQueue.main.async {
-                    self.label.append(("Home Address", result.homeAddress))
-                    self.label.append(("Spouse/Partner", result.spouse))
-                    self.label.append(("Home Phone", result.homePhone))
+                switch self.person!.type {
+                case .faculty:
+                    let result = try JSONDecoder().decode(facultyDetail.self, from: data)
                     
-                    self.tableView.reloadData()
+                    DispatchQueue.main.async {
+                        self.label.append(("Home Address", result.homeAddress))
+                        self.label.append(("Spouse/Partner", result.spouse))
+                        self.label.append(("Home Phone", result.homePhone))
+                        
+                        self.tableView.reloadData()
+                    }
+                case .student, .SGA:
+                    let result = try JSONDecoder().decode(studentDetail.self, from: data)
+                    
+                    DispatchQueue.main.async {
+                        if let concentration = result.concentration {
+                            self.label.append(("Concentration", concentration))
+                        }
+                        if let homeAddress = result.homeAddress {
+                            self.label.append(("Home Address", homeAddress))
+                        }
+                        
+                        self.tableView.reloadData()
+                    }
                 }
             } catch let jsonerr {
                 print(jsonerr)
