@@ -110,6 +110,9 @@ class ListViewController: UITableViewController {
                     }
                 }
             } catch let jsonerr {
+                DispatchQueue.main.async {
+                    self.tableView.setErrorMessage("JSON parsing error. Make sure you connect to Grinnell College's network")
+                }
                 print(jsonerr)
             }
         }.resume()
