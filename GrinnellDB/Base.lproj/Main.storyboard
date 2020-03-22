@@ -73,9 +73,9 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fbT-7F-5r9">
-                                            <rect key="frame" x="16" y="11" width="343" height="55"/>
+                                            <rect key="frame" x="20" y="0.0" width="339" height="66"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="55" id="dsL-gf-A8g"/>
+                                                <constraint firstAttribute="height" constant="66" id="dsL-gf-A8g"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
@@ -91,9 +91,9 @@
                                         <constraint firstItem="fbT-7F-5r9" firstAttribute="trailing" secondItem="rwm-a6-ufy" secondAttribute="trailingMargin" id="38c-aM-xwP"/>
                                         <constraint firstAttribute="trailing" secondItem="xqs-08-cLN" secondAttribute="trailing" constant="20" symbolic="YES" id="5ir-Qr-uux"/>
                                         <constraint firstItem="xqs-08-cLN" firstAttribute="leading" secondItem="rwm-a6-ufy" secondAttribute="leading" constant="20" symbolic="YES" id="J3N-du-vTf"/>
-                                        <constraint firstItem="fbT-7F-5r9" firstAttribute="top" secondItem="rwm-a6-ufy" secondAttribute="topMargin" id="QSZ-eQ-QbT"/>
+                                        <constraint firstItem="fbT-7F-5r9" firstAttribute="top" secondItem="rwm-a6-ufy" secondAttribute="topMargin" constant="-11" id="QSZ-eQ-QbT"/>
                                         <constraint firstAttribute="bottom" secondItem="xqs-08-cLN" secondAttribute="bottom" constant="30" id="i97-9Z-Vzp"/>
-                                        <constraint firstItem="fbT-7F-5r9" firstAttribute="leading" secondItem="rwm-a6-ufy" secondAttribute="leadingMargin" id="rd0-CI-uUT"/>
+                                        <constraint firstItem="fbT-7F-5r9" firstAttribute="leading" secondItem="rwm-a6-ufy" secondAttribute="leadingMargin" constant="4" id="rd0-CI-uUT"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -126,7 +126,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wdk-UO-VAn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-391.304347826087" y="181.47321428571428"/>
+            <point key="canvasLocation" x="-392.80000000000001" y="181.0344827586207"/>
         </scene>
         <!--Login-->
         <scene sceneID="1G3-8f-myH">
