@@ -202,10 +202,10 @@ class SearchViewController: UITableViewController {
                                    "Technology Studies"]
     
     let hiatusValue: [String:String] = ["": "",
-                                 "Off Campus Study": "ACLV",
-                                 "Engineering":"ENGR",
-                                 "Grinnell in London":"GIL",
-                                 "Grinnell in Washington":"GIW"]
+                                        "Off Campus Study": "ACLV",
+                                        "Engineering":"ENGR",
+                                        "Grinnell in London":"GIL",
+                                        "Grinnell in Washington":"GIW"]
     
     let hiatusText: [String:String] = ["":"",
                                        "ACLV":"Off Campus Study",
@@ -222,7 +222,7 @@ class SearchViewController: UITableViewController {
                                "2024"]
     
     let defaults = UserDefaults.standard
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -239,17 +239,17 @@ class SearchViewController: UITableViewController {
     var isExpanded: [Bool] = Array(repeating: false, count: 10) //todo
     
     var params: [String: String] = ["First name": "",
-                                     "Last name": "",
-                                     "Campus Address or P.O. Box": "",
-                                     "Fac/Staff Dept/Office": "",
-                                     "Student Major": "",
-                                     "Hiatus": "",
-                                     "Computer Username": "",
-                                     "Campus Phone": "",
-                                     "Home Address": "",
-                                     "SGA": "",
-                                     "Concentration": "",
-                                     "Student Class": ""]
+                                    "Last name": "",
+                                    "Campus Address or P.O. Box": "",
+                                    "Fac/Staff Dept/Office": "",
+                                    "Student Major": "",
+                                    "Hiatus": "",
+                                    "Computer Username": "",
+                                    "Campus Phone": "",
+                                    "Home Address": "",
+                                    "SGA": "",
+                                    "Concentration": "",
+                                    "Student Class": ""]
     
     func snapshotParams() {
         for cell in self.tableView.visibleCells {
@@ -268,16 +268,16 @@ class SearchViewController: UITableViewController {
     }
     
     // MARK: - Table view data source
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
-            case 0: return searchFieldSimple.count
-            case 1: return searchFieldDetail.count
-            default: return 0
+        case 0: return searchFieldSimple.count
+        case 1: return searchFieldDetail.count
+        default: return 0
         }
     }
     
@@ -288,7 +288,7 @@ class SearchViewController: UITableViewController {
             if let textCell = cell as? TextTableViewCell {
                 textCell.textField.placeholder = searchFieldSimple[indexPath.row]
                 textCell.textField.text =
-                params[searchFieldDetail[indexPath.row]] ?? ""
+                    params[searchFieldDetail[indexPath.row]] ?? ""
                 return textCell
             }
         } else {
@@ -307,20 +307,20 @@ class SearchViewController: UITableViewController {
                     if let numberCell = cell as? NumberTableViewCell {
                         numberCell.numberField.placeholder = searchFieldDetail[indexPath.row]
                         numberCell.numberField.text =
-                        params[searchFieldDetail[indexPath.row]] ?? ""
+                            params[searchFieldDetail[indexPath.row]] ?? ""
                         return numberCell
                     }
                 case "PickerCell":
                     if let pickerCell = cell as? PickerViewTableViewCell {
                         pickerCell.textField?.placeholder = searchFieldDetail[indexPath.row]
                         switch searchFieldDetail[indexPath.row] {
-                            case "Fac/Staff Dept/Office": pickerCell.options = department
-                            case "Student Major": pickerCell.options = major
-                            case "Hiatus": pickerCell.options = Array(hiatusValue.keys)
-                            case "Concentration": pickerCell.options = concentration
-                            case "SGA": pickerCell.options = SGA
-                            case "Student Class": pickerCell.options = classyear
-                            default: break
+                        case "Fac/Staff Dept/Office": pickerCell.options = department
+                        case "Student Major": pickerCell.options = major
+                        case "Hiatus": pickerCell.options = Array(hiatusValue.keys)
+                        case "Concentration": pickerCell.options = concentration
+                        case "SGA": pickerCell.options = SGA
+                        case "Student Class": pickerCell.options = classyear
+                        default: break
                         }
                         if var param = params[searchFieldDetail[indexPath.row]] {
                             if searchFieldDetail[indexPath.row] == "Hiatus" {
@@ -394,9 +394,9 @@ class SearchViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
-            case 0: return "Basic"
-            case 1: return "Detail"
-            default: return "ERROR"
+        case 0: return "Basic"
+        case 1: return "Detail"
+        default: return "ERROR"
         }
     }
     
@@ -413,12 +413,12 @@ class SearchViewController: UITableViewController {
         /* sketchy way of checking validity of cookie */
         var urlString = "https://appdev.grinnell.edu/api/db/v1/fetch?lastName=Zixuan&token="
         urlString += cookie
-                
+        
         URLSession.shared.dataTask(with: URL(string: urlString)!) { (data, response, err) in
             guard let data = data else {
                 return
             }
-                
+            
             do {
                 let response = try JSONDecoder().decode(QueryResult.self, from: data)
                 if !response.errMessage.isEmpty {
@@ -427,7 +427,10 @@ class SearchViewController: UITableViewController {
                     }
                 }
             } catch let jsonerr {
-                print(jsonerr)
+                print("JSONNN\(jsonerr)")
+                DispatchQueue.main.async {
+                    self.createAlert(title: "Failed JSON Parsing", message: String(decoding: data, as: UTF8.self))
+                }
             }
         }.resume()
     }
@@ -446,16 +449,21 @@ class SearchViewController: UITableViewController {
     // MARK: - Segue
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        snapshotParams()
-        
-        //print(params) // debug
-        
-        if let listVC = segue.destination as? ListViewController {
-            listVC.params = self.params
+        if segue.identifier == "login" {
+            if (sender as? UIBarButtonItem) != nil {
+                if let loginVC = segue.destination as? LoginViewController {
+                    loginVC.relogin = true
+                }
+            }
+        } else {
+            snapshotParams()
+            if let listVC = segue.destination as? ListViewController {
+                listVC.params = self.params
+            }
         }
     }
     
-    // MARK: - Reset
+    // MARK: - Reset and Relogin
     @IBAction func resetButtonTapped(_ sender: Any) {
         print("reset")
         for cell in self.tableView.visibleCells {
@@ -475,6 +483,11 @@ class SearchViewController: UITableViewController {
         }
         tableView.reloadData()
     }
+    
+    @IBAction func reloginButtonTapped(_ sender: Any) {
+        self.performSegue(withIdentifier: "login", sender: sender)
+    }
+    
 }
 
 extension UITextField {

@@ -109,11 +109,18 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Search" id="Y6C-GD-Gq7">
-                        <barButtonItem key="leftBarButtonItem" title="Reset" id="1M5-vh-tc1">
-                            <connections>
-                                <action selector="resetButtonTapped:" destination="zqG-ZZ-kep" id="etb-WX-dYa"/>
-                            </connections>
-                        </barButtonItem>
+                        <leftBarButtonItems>
+                            <barButtonItem title="Reset" id="1M5-vh-tc1">
+                                <connections>
+                                    <action selector="resetButtonTapped:" destination="zqG-ZZ-kep" id="etb-WX-dYa"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Re-login" id="gy4-gH-MiS">
+                                <connections>
+                                    <action selector="reloginButtonTapped:" destination="zqG-ZZ-kep" id="DbR-Tf-3FB"/>
+                                </connections>
+                            </barButtonItem>
+                        </leftBarButtonItems>
                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="ozy-lq-DIO">
                             <connections>
                                 <segue destination="vsp-Fk-rdG" kind="show" identifier="search" id="dc9-Ty-HO2"/>
@@ -121,7 +128,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="Q7C-Gh-tO2" kind="show" identifier="login" id="w9k-Du-cga"/>
+                        <segue destination="Q7C-Gh-tO2" kind="presentation" identifier="login" id="w9k-Du-cga"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wdk-UO-VAn" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -133,12 +140,14 @@
             <objects>
                 <viewController title="Login" id="Q7C-Gh-tO2" customClass="LoginViewController" customModule="GrinnellDB" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NqD-vL-WUM">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="Rsu-qs-Eou"/>
                     </view>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" id="b81-hG-tdt"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FQq-pk-XmH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

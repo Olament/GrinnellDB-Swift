@@ -74,8 +74,6 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         URLSession.shared.dataTask(with: url) { (data, response, err) in
             guard let data = data else { return }
             
-            print(data.prettyPrintedJSONString)
-            
             do {
                 
                 switch self.person!.type {

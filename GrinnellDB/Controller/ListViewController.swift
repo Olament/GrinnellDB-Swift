@@ -111,6 +111,11 @@ class ListViewController: UITableViewController {
                 }
             } catch let jsonerr {
                 print(jsonerr)
+                DispatchQueue.main.async {
+                    self.tableView.setErrorMessage(String(decoding: data, as: UTF8.self))
+                    //self.navigationController?.popToRootViewController(animated: true)
+                }
+                
             }
         }.resume()
         
