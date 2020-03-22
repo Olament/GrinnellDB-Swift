@@ -47,7 +47,9 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
                      ("Class", sga.classYear ?? "Null"),
                      ("Email", sga.email ?? "Null"),
                      ("Campus Box", sga.box ?? "Null"),
-                     ("Office address", sga.officeAddress ?? "Null")]
+                     ("Office address", sga.officeAddress ?? "Null"),
+                     ("SGA Phone", sga.officePhone ?? "Null"),
+                     ("SGA Box", sga.officeBox ?? "Null")]
         }
         
             fetch()
